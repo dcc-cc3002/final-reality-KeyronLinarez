@@ -2,7 +2,7 @@ package Characters
 
 import Armas.MagicWeapon
 
-class MagoBlanco(name: String, life: Int, defense: Int, weapon: Option[MagicWeapon],
-                   weight: Int,  mana: Int) extends AbstractMagicPersonaje(name, life, defense, weapon, weight, mana){
+class MagoBlanco(val name: String, var life: Int, var defense: Int, var weapon: Option[MagicWeapon],
+                 var weight: Int,  var mana: Int) extends AbstractMagicPersonaje{
 
 }

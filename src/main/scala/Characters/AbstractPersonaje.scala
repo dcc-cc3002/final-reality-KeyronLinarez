@@ -1,10 +1,6 @@
 package Characters
 
-import Armas.NormalWeapon
-
-abstract class AbstractPersonaje (val name: String,
-                                   var life: Int,
-                                   var defense: Int,
-                                   var weapon: Option[NormalWeapon],
-                                   var weight: Int) extends Personaje{
+import Armas.Weapon
+// helps grab a type for the party class
+abstract class AbstractPersonaje extends Personaje{
 }
