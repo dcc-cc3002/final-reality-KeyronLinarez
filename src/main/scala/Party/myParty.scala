@@ -1,11 +1,12 @@
 package Party
 
 import Characters.AbstractPersonaje
+import TurnScheduler.ActionBar
 
 import scala.::
 import scala.collection.mutable.ListBuffer
 
-class myParty(){
+class myParty() {
   var characters: ListBuffer[AbstractPersonaje] = ListBuffer()
 
   // Method to add a character to the party
