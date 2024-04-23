@@ -3,9 +3,12 @@ package TurnScheduler
 import Armas.Weapon
 import Characters.{AbstractPersonaje, Personaje}
 import Party.myParty
+import scala.collection.mutable.Queue
+import scala.collection.mutable._
 
 class TurnScheduler (current_party: myParty) {
-
+  // queue of actionbars to track turn order
+  val turnOrder: Queue[AbstractPersonaje] = Queue()
   def addCharacter(character: AbstractPersonaje): Unit = {
     // add character of type personaje to your List[ActionBar]
     current_party.addCharacter(character)
@@ -17,7 +20,7 @@ class TurnScheduler (current_party: myParty) {
   }
 
   // this function returns a list with (name, size)
-  def ActionBarSizes (current_party: myParty): List[(String, Float)] = {
+  def ActionBarSizes(current_party: myParty): List[(String, Float)] = {
     var name: String = ""
     var actionbarSize: Int = 0
     var actionList: List[(String, Float)] = List.empty
@@ -29,9 +32,8 @@ class TurnScheduler (current_party: myParty) {
     return actionList
   }
 
-  def battleStatus (): List[(String, Boolean)] = {
-    // returns the status of every actionBar in the list
-
+  // returns the status of every actionBar in the list
+  def battleStatus(): List[(String, Boolean)] = {
     var name: String = ""
     var status: Boolean = false
     var actionList: List[(String, Boolean)] = List.empty
@@ -50,29 +52,56 @@ class TurnScheduler (current_party: myParty) {
     }
   }
 
-//  def checkStatus(index: Int): Boolean = {
-//    // checks the status of the actionbar at the given index
-//    return true
-//  }
-
-  def turnCheckAll(): myParty = {
-    // returns a list of strings containing all the players with full action bars
-    // if no characters are finished -- uses isMyTurn!
-    return List[None]
-    //    - El orden debe ser de mayor a menor, basado
-    //    en el excedente que los personajes tuvieron al completar su barra de acción
+  // returns status of
+  def checkStatus(character: AbstractPersonaje): Int = {
+    // checks the status of the actionbar at the given index
+    return character.status
   }
 
-  def takeAction(character: AbstractPersonaje): String = {
+  def incrementTurnPoints(increment: Int) = {
+    for (character <- current_party.characters) {
+      character.status += increment
+    }
+  }
+
+  def turnCheckAll() = {
+    // queues all the players with full action bars
+    // if no characters are finished, do nothing
+
+    // iterate over entire party
+    for (character <- current_party.characters) {
+      // if the action points of a character exceed the size of the action bar...
+      if (character.status >= character.barSize()) {
+        // update isMyTurn and queue the character to turnOrder -- not yet sorted
+        character.isMyTurn = true
+        turnOrder.enqueue(character)
+        // if action bar is overflowing, save the surplus
+        if (character.status -= character.barSize() > 0) {
+          character.surplusPoints() = (character.status -= character.barSize())
+        }
+        // reset action bar to zero
+        character.status = 0
+      }
+    }
+  }
+
+  // check the turn status of a specefic character
+  def checkTurnStatus(character: AbstractPersonaje): Boolean = {
     // act based off of the given characters current status
-    // ie. isMyTurn() -> return Fight or doNothing
-    return ""
+    return character.isMyTurn
   }
 
+  // calcualates turn order for a given turn
   def calculateTurnOrder(): Unit = {
-    // calcualates turn order for a given turn
+    for (character <- current_party.characters) {
+      // Reorder queue based on who has the highest surplus
+      val sortedQueue = turnOrder.sortBy(_.surplusPoints())(Ordering[Int].reverse)
+      // Clear the original queue
+      turnOrder.clear()
+      // Enqueue elements from the sorted sequence
+      sortedQueue.foreach(turnOrder.enqueue)
+    }
   }
 }
-
 
 case class None()

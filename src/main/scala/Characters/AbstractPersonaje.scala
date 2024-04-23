@@ -7,4 +7,5 @@ abstract class AbstractPersonaje extends Personaje{
   var isMyTurn: Boolean
   var status: Int
   def barSize(): Float
+  def surplusPoints(): Int
 }
