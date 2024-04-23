@@ -19,5 +19,9 @@ def dropCharacter(character: AbstractPersonaje): Unit = {
   characters = characters -= character
 }
 
+  def isEmpty(current_party: myParty): Boolean = {
+    current_party.characters.isEmpty
+  }
+
 }
 
