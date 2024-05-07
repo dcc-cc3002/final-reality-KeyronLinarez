@@ -20,16 +20,15 @@ class TurnScheduler (current_party: myParty) {
   }
 
   // this function returns a list with (name, size)
-  def ActionBarSizes(current_party: myParty): List[(String, Float)] = {
-    var name: String = ""
-    var actionbarSize: Int = 0
-    var actionList: List[(String, Float)] = List.empty
+  def ActionBarSizes(current_party: myParty): ListBuffer[(String, Float)] = {
+    val characterList: ListBuffer[AbstractPersonaje] = current_party.character_list
+    val actionbarList: ListBuffer[ActionBar] = current_party.actionbar_list
 
-    // returns the total size of an action bar at the given index
-    for (character <- current_party.characters) {
-      actionList :+ (character.name, character.barSize())
+    // creates a ListBuffer holding (name, actionbar) for every party member
+    val actionList: ListBuffer[(String, Float)] = characterList.zip(actionbarList).map {
+      case (character, actionbar) => (character.name, actionbar.status())
     }
-    return actionList
+    actionList
   }
 
   // returns the status of every actionBar in the list
