@@ -2,7 +2,7 @@ package Characters
 
 import Armas.Weapon
 
-/** Keyron Linares - Entrega Parcial 1 */
+/** Keyron Linares - Entrega final 1 */
 trait Personaje {
   val name: String
   var life: Int

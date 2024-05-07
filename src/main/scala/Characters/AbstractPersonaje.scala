@@ -1,11 +1,14 @@
 package Characters
 
 import Armas.Weapon
+import TurnScheduler.ActionBar
 /**
  * Represents an abstract character with common attributes and behavior.
  * Subclasses are expected to implement specific functionality.
+ *
+ * @param bar The action bar of the character respectively
  */
-abstract class AbstractPersonaje extends Personaje{
+abstract class AbstractPersonaje(bar: ActionBar) extends Personaje {
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean
   /** A boolean that returns the current action bar quantity. */
