@@ -13,9 +13,8 @@ import Armas.MagicWeapon
  * @constructor Creates a new Black Mage with the specified attributes.
  *
  */
-class BlackMage(val name: String, var life: Int, var defense: Int,
-                var weight: Int, var mana: Int) extends AbstractMagicCharacter{
-
+class BlackMage(name: String, life: Int, defense: Int, weight: Int, weapon: Some[MagicWeapon], mana: Int)
+  extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon){
   /** Indicates whether it's the Black Mage's turn in combat. */
   var isMyTurn: Boolean = false
 //  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {

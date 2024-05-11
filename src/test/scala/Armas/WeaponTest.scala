@@ -1,0 +1,5 @@
+package Armas
+
+class WeaponTest {
+
+}
