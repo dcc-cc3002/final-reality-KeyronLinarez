@@ -13,8 +13,8 @@ import Armas.Weapon
  * @constructor Creates a new Geurrero with the specified attributes.
  *
  */
-class Warrior(val name: String, var life: Int, var defense: Int,
-               var weight: Int) extends AbstractCharacter{
+class Warrior(name: String, life: Int, defense: Int, weight: Int, weapon: Option[Weapon])
+  extends AbstractCharacter(name, life, defense, weight, weapon) {
 
   /** Indicates whether it's the Warrior's turn in combat. */
   var isMyTurn: Boolean = false
