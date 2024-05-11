@@ -5,7 +5,7 @@ import Characters.{AbstractCharacter, Warrior}
 import Party.myParty
 
 class EnemyTest extends munit.FunSuite{
-  val character = new Enemy("Rona", 100, 200, 0)
+  val character = new Enemy("Rona", 100, 200, 0, None)
 
 
   test(name = "A character should have a negative value for isMyTurn") {
