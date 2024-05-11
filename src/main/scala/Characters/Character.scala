@@ -3,7 +3,7 @@ package Characters
 import Armas.Weapon
 
 /** Keyron Linares - Entrega final 1 */
-trait Personaje {
+trait Character {
   val name: String
   var life: Int
   var defense: Int

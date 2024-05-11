@@ -13,8 +13,8 @@ import Armas.MagicWeapon
  * @constructor Creates a new Black Mage with the specified attributes.
  *
  */
-class MagoNegro(val name: String, var life: Int, var defense: Int,
-                var weight: Int, var mana: Int) extends AbstractMagicPersonaje{
+class BlackMage(val name: String, var life: Int, var defense: Int,
+                var weight: Int, var mana: Int) extends AbstractMagicCharacter{
 
   /** Indicates whether it's the Black Mage's turn in combat. */
   var isMyTurn: Boolean = false

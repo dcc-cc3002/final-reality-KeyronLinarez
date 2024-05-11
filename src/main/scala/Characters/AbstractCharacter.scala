@@ -8,7 +8,7 @@ import TurnScheduler.ActionBar
  *
  * @var action_bar The action bar of the character respectively
  */
-abstract class AbstractPersonaje extends Personaje {
+abstract class AbstractCharacter extends Character {
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean
   var action_bar: ActionBar = new ActionBar(this)

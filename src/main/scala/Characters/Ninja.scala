@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.{NormalWeapon, Weapon}
+import Armas.Weapon
 /**
  * Represents a  character
  *
@@ -14,7 +14,7 @@ import Armas.{NormalWeapon, Weapon}
  *
  */
 class Ninja(val name: String, var life: Int, var defense: Int,
-            var weight: Int) extends AbstractPersonaje{
+            var weight: Int) extends AbstractCharacter{
   /** Indicates whether it's the ninja's turn in combat. */
   var isMyTurn: Boolean = false
 //  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {

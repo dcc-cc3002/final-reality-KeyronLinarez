@@ -1,6 +1,6 @@
 package Party
 
-import Characters.AbstractPersonaje
+import Characters.AbstractCharacter
 import TurnScheduler.ActionBar
 
 import scala.::
@@ -8,14 +8,14 @@ import scala.collection.mutable.ListBuffer
 
 class myParty() {
   // make tuple containing characters and action bars
-  var party_tuple: (ListBuffer[AbstractPersonaje], ListBuffer[ActionBar]) = (ListBuffer[AbstractPersonaje](), ListBuffer[ActionBar]())
+  var party_tuple: (ListBuffer[AbstractCharacter], ListBuffer[ActionBar]) = (ListBuffer[AbstractCharacter](), ListBuffer[ActionBar]())
   // edit both lists individually
   var (character_list, actionbar_list) = party_tuple
 
-  def findActionBarForCharacter(character: AbstractPersonaje): Option[ActionBar] = {
+  def findActionBarForCharacter(character: AbstractCharacter): Option[ActionBar] = {
     actionbar_list.find(_.associatedCharacter == character)
   }
-  def addCharacter(character: AbstractPersonaje): Unit = {
+  def addCharacter(character: AbstractCharacter): Unit = {
     character_list = character_list += character
 
     // Add an associated actionbar for the character
@@ -27,7 +27,7 @@ class myParty() {
   }
 
 // Method to remove a character to the party
-def dropCharacter(character: AbstractPersonaje): Unit = {
+def dropCharacter(character: AbstractCharacter): Unit = {
   // !! needs an if in case no action bar is passed
   // Find and remove the associated action bar for the character
   //actionbar_list = actionbar_list -= findActionBarForCharacter(character)

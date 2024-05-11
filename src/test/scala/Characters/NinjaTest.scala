@@ -1,7 +1,7 @@
 package Characters
 
 import Armas.Weapon
-import Characters.{AbstractPersonaje, Guerrero}
+import Characters.{AbstractCharacter, Warrior}
 import Party.myParty
 
 class NinjaTest extends munit.FunSuite{

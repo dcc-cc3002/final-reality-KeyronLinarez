@@ -13,8 +13,8 @@ import Armas.{MagicWeapon, Weapon}
  * @constructor Creates a new White Mage with the specified attributes.
  *
  */
-class MagoBlanco(val name: String, var life: Int, var defense: Int,
-                 var weight: Int,  var mana: Int) extends AbstractMagicPersonaje{
+class WhiteMage(val name: String, var life: Int, var defense: Int,
+                 var weight: Int,  var mana: Int) extends AbstractMagicCharacter{
 
   /** Indicates whether it's the White Mage's turn in combat. */
   var isMyTurn: Boolean = false

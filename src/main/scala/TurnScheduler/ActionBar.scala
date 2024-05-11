@@ -1,9 +1,9 @@
 package TurnScheduler
 
-import Characters.{AbstractPersonaje, Personaje}
+import Characters.{AbstractCharacter, Character}
 import Party.myParty
 
-class ActionBar (character: AbstractPersonaje) {
+class ActionBar (character: AbstractCharacter) {
   character.isMyTurn = false
   // Extract weapon weight or use default value if None
   val weaponWeight: Int = character.weapon_weight
@@ -32,5 +32,5 @@ class ActionBar (character: AbstractPersonaje) {
   //  def surplusPoints(): Int
 
   // current index value corresponding to a character in a party
-  val associatedCharacter: AbstractPersonaje = character
+  val associatedCharacter: AbstractCharacter = character
 }
