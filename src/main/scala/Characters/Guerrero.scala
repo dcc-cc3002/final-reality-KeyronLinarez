@@ -13,10 +13,12 @@ import Armas.{NormalWeapon, Weapon}
  * @constructor Creates a new Geurrero with the specified attributes.
  *
  */
-class Guerrero(val name: String, var life: Int, var defense: Int, var weapon: Option[NormalWeapon],
-               var weight: Int) extends AbstractNormalPersonaje{
+class Guerrero(val name: String, var life: Int, var defense: Int,
+               var weight: Int) extends AbstractPersonaje{
 
   /** Indicates whether it's the Guerrero's turn in combat. */
   var isMyTurn: Boolean = false
-
+//  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
+//    // Implement the logic for setting the weapon
+//  }
 }

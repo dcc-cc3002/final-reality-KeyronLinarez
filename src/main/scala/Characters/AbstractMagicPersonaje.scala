@@ -3,5 +3,7 @@ package Characters
 import Armas.MagicWeapon
 import TurnScheduler.ActionBar
 // I wanted every character to have an actionbar, is using this correct?
-abstract class AbstractMagicPersonaje(bar: ActionBar) {
+// ADD MAGIC EXCLUSIVE SHIT
+abstract class AbstractMagicPersonaje extends AbstractPersonaje {
+  var mana: Int
 }

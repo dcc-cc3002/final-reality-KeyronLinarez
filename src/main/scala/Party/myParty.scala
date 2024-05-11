@@ -30,7 +30,7 @@ class myParty() {
 def dropCharacter(character: AbstractPersonaje): Unit = {
   // !! needs an if in case no action bar is passed
   // Find and remove the associated action bar for the character
-  actionbar_list = actionbar_list -= findActionBarForCharacter(character)
+  //actionbar_list = actionbar_list -= findActionBarForCharacter(character)
 
   character_list = character_list -= character
 

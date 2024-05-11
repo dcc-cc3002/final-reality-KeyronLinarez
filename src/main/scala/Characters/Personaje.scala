@@ -8,6 +8,5 @@ trait Personaje {
   var life: Int
   var defense: Int
   var weight: Int
-  var weapon: Option[Weapon]
 }
 

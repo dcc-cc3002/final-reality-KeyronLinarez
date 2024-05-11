@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.NormalWeapon
+import Armas.{NormalWeapon, Weapon}
 /**
  * Represents an enemy character
  *
@@ -13,10 +13,9 @@ import Armas.NormalWeapon
  * @constructor Creates a new Enemy with the specified attributes.
  *
  */
-class Enemy(val name: String, var life: Int, var defense: Int, var weapon: Option[NormalWeapon],
-            var weight: Int) extends AbstractNormalPersonaje {
+class Enemy(val name: String, var life: Int, var defense: Int,
+            var weight: Int) extends AbstractPersonaje {
 
   /** Indicates whether it's the Guerrero's turn in combat. */
   var isMyTurn: Boolean = false
-
 }

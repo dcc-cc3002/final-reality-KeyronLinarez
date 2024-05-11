@@ -1,7 +1,10 @@
 package Armas
 
-abstract class MagicWeapon (val name: String,
-                            var attack: Int,
-                            var weight: Int,
-                            val owner: String) extends Weapon {
+trait MagicWeapon {
+  val name: String
+  var attack: Int
+  var weight: Int
+  val owner: String
+  val mana: Int
 }
+

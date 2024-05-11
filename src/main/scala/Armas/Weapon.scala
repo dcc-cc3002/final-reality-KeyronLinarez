@@ -6,5 +6,4 @@ trait Weapon {
   var attack: Int
   var weight: Int
   val owner: String
-
 }
