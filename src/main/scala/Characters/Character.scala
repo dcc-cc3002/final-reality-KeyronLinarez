@@ -4,9 +4,14 @@ import Armas.Weapon
 
 /** Keyron Linares - Entrega final 1 */
 trait Character {
-  val name: String
-  var life: Int
-  var defense: Int
-  var weight: Double
+  private val name: String = "DefaultName"
+  private var life: Int = 1
+  private var defense: Int = 0
+  private var weight: Double = 0
+
+  def getName: String = name
+  def getLife: Int = life
+  def getDefense: Int = defense
+  def getWeight: Double = weight
 }
 

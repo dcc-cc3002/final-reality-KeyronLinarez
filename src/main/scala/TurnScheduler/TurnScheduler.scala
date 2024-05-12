@@ -4,6 +4,7 @@ import Armas.Weapon
 import Characters.{AbstractCharacter, Character}
 import TurnScheduler.aParty
 
+import scala.{+:, ::}
 import scala.collection.mutable
 import scala.collection.mutable.Queue
 import scala.collection.mutable._
@@ -24,14 +25,15 @@ class TurnScheduler (current_party: aParty) {
   }
 
   // this function returns a list with (name, size)
-  def ActionBarSizes(current_party: aParty): List[(String, Float)] = {
+  def ActionBarSizes(current_party: aParty): List[(String, Double)] = {
     var name: String = ""
     var actionbarSize: Int = 0
-    var barSizeList: List[(String, Float)] = List.empty
+    var barSizeList: List[(String, Double)] = List.empty
 
     // returns the total size of an action bar at the given index
     for (character <- current_party.party_list) {
-      return barSizeList :+ (character.name, character.action_bar.barSize)
+      val newElement: (String, Double) = (character.getName, character.action_bar.barSize)
+      return barSizeList :+ newElement
     }
     barSizeList
   }
@@ -44,7 +46,7 @@ class TurnScheduler (current_party: aParty) {
 
     // returns the total size of an action bar at the given index
     for (character <- current_party.party_list) {
-      actionList :+ (character.name, character.isMyTurn)
+      actionList :+ (character.getName, character.isMyTurn)
     }
     return actionList
   }
@@ -62,7 +64,7 @@ class TurnScheduler (current_party: aParty) {
     return character.action_bar.status
   }
 
-  def incrementTurnPoints(increment: Int) = {
+  def incrementTurnPoints(increment: Int): Unit = {
     for (character <- current_party.party_list) {
       character.action_bar.status += increment
     }

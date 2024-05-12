@@ -8,7 +8,9 @@ import scala.collection.mutable.ListBuffer
 
 class aParty() {
   // make tuple containing characters
-  var party_list: (ListBuffer[AbstractCharacter]) = ListBuffer[AbstractCharacter]
+  //var party_list: (ListBuffer[AbstractCharacter]) = ListBuffer[AbstractCharacter]
+  var party_list: ListBuffer[AbstractCharacter] = ListBuffer.empty[AbstractCharacter]
+
   // edit both lists individually
   //var (character_list, actionbar_list) = party_tuple
 

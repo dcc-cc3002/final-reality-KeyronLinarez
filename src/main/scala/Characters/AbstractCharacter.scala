@@ -15,8 +15,9 @@ abstract class AbstractCharacter(val name: String, var life: Int, var defense: I
   // throw exception if not valid state for LIFE, DEF, WGHT
   Require.Stat(life, "life") atLeast 1
   Require.Stat(defense, "defense") atLeast 0
-  Require.Stat(weight.toInt, "weight") atLeast 1
+  Require.Stat(weight.toInt, "weight") atLeast 0
 
+//  def getName: String = name
 
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean

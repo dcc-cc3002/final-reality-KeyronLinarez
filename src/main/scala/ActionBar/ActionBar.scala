@@ -1,7 +1,6 @@
 package TurnScheduler
 
 import Characters.{AbstractCharacter, Character}
-import Party.myParty
 
 class ActionBar (character: AbstractCharacter) {
   character.isMyTurn = false

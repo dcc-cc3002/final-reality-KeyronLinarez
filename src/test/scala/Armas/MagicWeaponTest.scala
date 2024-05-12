@@ -16,11 +16,11 @@ class MagicWeaponTest extends munit.FunSuite{
       case None => println("Character does not have a weapon")
     }
 
-    assert(character.name == "Rona")
+    assert(character.getName == "Rona")
     assert(character.life == 100)
     assert(character.defense == 200)
     assert(character.weight == 0)
-    assert(character.mana == 100)
+    assert(character.getMana == 100)
     assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
     assert(character.weapon.get.name == "Wand") // Check if the character's weapon is a Wand
   }
@@ -33,7 +33,7 @@ class MagicWeaponTest extends munit.FunSuite{
     assert(character.life == 100)
     assert(character.defense == 200)
     assert(character.weight == 0)
-    assert(character.mana == 100)
+    assert(character.getMana == 100)
     assert(character.weapon.isEmpty) // Check if the character does not have a weapon
   }
   // Test case for creating a WhiteMage character with a Staff
@@ -50,7 +50,7 @@ class MagicWeaponTest extends munit.FunSuite{
     assert(character.life == 100)
     assert(character.defense == 200)
     assert(character.weight == 0)
-    assert(character.mana == 100)
+    assert(character.getMana == 100)
     assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
     assert(character.weapon.get.name == "Staff") // Check if the character's weapon is a Wand
   }
@@ -63,7 +63,7 @@ class MagicWeaponTest extends munit.FunSuite{
     assert(character.life == 100)
     assert(character.defense == 200)
     assert(character.weight == 0)
-    assert(character.mana == 100)
+    assert(character.getMana == 100)
     assert(character.weapon.isEmpty) // Check if the character does not have a weapon
 
   }

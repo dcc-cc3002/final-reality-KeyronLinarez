@@ -14,7 +14,12 @@ import Armas.MagicWeapon
  *
  */
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
-  extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon){
+  extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
+  // Additional code for BlackMage class
+//}
+//
+//class BlackMage(_name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
+//  extends AbstractMagicCharacter(_name, life, defense, weight, mana, weapon){
   /** Indicates whether it's the Black Mage's turn in combat. */
   var isMyTurn: Boolean = false
 //  weapon match {

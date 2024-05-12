@@ -2,7 +2,6 @@ package Characters
 
 import Armas.{MagicWeapon, Weapon}
 import Characters.{AbstractCharacter, Warrior}
-import Party.myParty
 
 class BlackMageTest extends munit.FunSuite{
   val character = new BlackMage("Rona", 100, 200, 0, 100, None)

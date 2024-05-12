@@ -2,7 +2,6 @@ package Characters
 
 import Armas.Weapon
 import Characters.{AbstractCharacter, Warrior}
-import Party.myParty
 
 class EnemyTest extends munit.FunSuite{
   val character = new Enemy("Rona", 100, 200, 0, None)
