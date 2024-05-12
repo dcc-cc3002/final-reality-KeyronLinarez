@@ -5,7 +5,7 @@ import TurnScheduler.ActionBar
 // I wanted every character to have an actionbar, is using this correct?
 // ADD MAGIC EXCLUSIVE SHIT
 
-abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, weight: Int, var mana: Int,
+abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, weight: Double, var mana: Int,
                              weapon: Option[MagicWeapon] = None) extends AbstractCharacter(name, life, defense, weight, weapon) {
 
 }

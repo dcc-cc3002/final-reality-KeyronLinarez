@@ -13,7 +13,7 @@ import Armas.Weapon
  * @constructor Creates a new Enemy with the specified attributes.
  *
  */
-class Enemy(name: String, life: Int, defense: Int, weight: Int, weapon: Option[Weapon])
+class Enemy(name: String, life: Int, defense: Int, weight: Double, weapon: Option[Weapon])
   extends AbstractCharacter(name, life, defense, weight, weapon) {
 
   /** Indicates whether it's the Guerrero's turn in combat. */

@@ -7,6 +7,6 @@ trait Character {
   val name: String
   var life: Int
   var defense: Int
-  var weight: Int
+  var weight: Double
 }
 

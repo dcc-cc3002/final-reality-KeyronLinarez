@@ -13,7 +13,7 @@ import Armas.Weapon
  * @constructor Creates a new Ninja with the specified attributes.
  *
  */
-class Ninja(name: String, life: Int, defense: Int, weight: Int, weapon: Option[Weapon])
+class Ninja(name: String, life: Int, defense: Int, weight: Double, weapon: Option[Weapon])
   extends AbstractCharacter(name, life, defense, weight, weapon) {
   /** Indicates whether it's the ninja's turn in combat. */
   var isMyTurn: Boolean = false

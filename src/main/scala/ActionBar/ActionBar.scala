@@ -5,14 +5,16 @@ import Party.myParty
 
 class ActionBar (character: AbstractCharacter) {
   character.isMyTurn = false
+  // current index value corresponding to a character in a party
+  val associatedCharacter: AbstractCharacter = character
   // Extract weapon weight or use default value if None
-  val weaponWeight: Int = character.weapon_weight
+  val weaponWeight: Double = character.weapon_weight
   // calculate total action bar value
-  var barSize: Float = (character.weight + (0.5 * weaponWeight).toFloat)
+  var barSize: Double = (character.weight + (0.5 * weaponWeight))
   // Current value of action bar
-  var status: Int = 0
+  var status: Double = 0
   // left over turn points after a given turn
-  var surplusPoints: Int = 0
+  var surplusPoints: Double = 0
 
   //  /** A boolean that returns the current action bar quantity. */
   //  var status: Int
@@ -31,6 +33,5 @@ class ActionBar (character: AbstractCharacter) {
   //   */
   //  def surplusPoints(): Int
 
-  // current index value corresponding to a character in a party
-  val associatedCharacter: AbstractCharacter = character
+
 }
