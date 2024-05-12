@@ -9,13 +9,20 @@ import exceptions.Require
  *
  * @var action_bar The action bar of the character respectively
  */
-abstract class AbstractCharacter(val name: String, var life: Int, var defense: Int, var weight: Double,
+abstract class AbstractCharacter(private val name: String, private var life: Int, private var defense: Int, private var weight: Double,
                                  var weapon: Option[Weapon]) extends Character {
 
   // throw exception if not valid state for LIFE, DEF, WGHT
   Require.Stat(life, "life") atLeast 1
   Require.Stat(defense, "defense") atLeast 0
   Require.Stat(weight.toInt, "weight") atLeast 0
+
+  ////
+
+  override def getName: String = name
+  override def getLife: Int = life
+  override def getDefense: Int = defense
+  override def getWeight: Double = weight
 
 //  def getName: String = name
 

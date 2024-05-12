@@ -16,10 +16,10 @@ import Characters.{Ninja, Paladin, Warrior}
         case None => println("Character does not have a weapon")
       }
 
-      assert(character.name == "Rona")
-      assert(character.life == 100)
-      assert(character.defense == 200)
-      assert(character.weight == 0)
+      assert(character.getName == "Rona")
+      assert(character.getLife == 100)
+      assert(character.getDefense == 200)
+      assert(character.getWeight == 0)
       assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
       assert(character.weapon.get.name == "Sword") // Check if the character's weapon is a Sword
     }
@@ -28,10 +28,10 @@ import Characters.{Ninja, Paladin, Warrior}
     test("Character without a weapon") {
       val character = new Warrior("Rona", 100, 200, 0, None)
 
-      assert(character.name == "Rona")
-      assert(character.life == 100)
-      assert(character.defense == 200)
-      assert(character.weight == 0)
+      assert(character.getName == "Rona")
+      assert(character.getLife == 100)
+      assert(character.getDefense == 200)
+      assert(character.getWeight == 0)
       assert(character.weapon.isEmpty) // Check if the character does not have a weapon
     }
     // Test case for creating a WhiteMage character with a Staff
@@ -44,10 +44,10 @@ import Characters.{Ninja, Paladin, Warrior}
         case None => println("Character does not have a weapon")
       }
 
-      assert(character.name == "Rona")
-      assert(character.life == 100)
-      assert(character.defense == 200)
-      assert(character.weight == 0)
+      assert(character.getName == "Rona")
+      assert(character.getLife == 100)
+      assert(character.getDefense == 200)
+      assert(character.getWeight == 0)
       assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
       assert(character.weapon.get.name == "Bow") // Check if the character's weapon is a Wand
     }
@@ -56,10 +56,10 @@ import Characters.{Ninja, Paladin, Warrior}
     test("Character without a weapon") {
       val character = new Paladin("Rona", 100, 200, 0, None)
 
-      assert(character.name == "Rona")
-      assert(character.life == 100)
-      assert(character.defense == 200)
-      assert(character.weight == 0)
+      assert(character.getName == "Rona")
+      assert(character.getLife == 100)
+      assert(character.getDefense == 200)
+      assert(character.getWeight == 0)
       assert(character.weapon.isEmpty) // Check if the character does not have a weapon
 
     }

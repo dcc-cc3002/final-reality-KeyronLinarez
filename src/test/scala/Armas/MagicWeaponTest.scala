@@ -15,11 +15,12 @@ class MagicWeaponTest extends munit.FunSuite{
       case Some(weapon) => println(s"Character has weapon: $weapon")
       case None => println("Character does not have a weapon")
     }
+    println(character.getName)
 
     assert(character.getName == "Rona")
-    assert(character.life == 100)
-    assert(character.defense == 200)
-    assert(character.weight == 0)
+    assert(character.getLife == 100)
+    assert(character.getDefense == 200)
+    assert(character.getWeight == 0)
     assert(character.getMana == 100)
     assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
     assert(character.weapon.get.name == "Wand") // Check if the character's weapon is a Wand
@@ -29,10 +30,10 @@ class MagicWeaponTest extends munit.FunSuite{
   test("Character without a weapon") {
     val character = new BlackMage("Rona", 100, 200, 0, 100, None)
 
-    assert(character.name == "Rona")
-    assert(character.life == 100)
-    assert(character.defense == 200)
-    assert(character.weight == 0)
+    assert(character.getName == "Rona")
+    assert(character.getLife == 100)
+    assert(character.getDefense == 200)
+    assert(character.getWeight == 0)
     assert(character.getMana == 100)
     assert(character.weapon.isEmpty) // Check if the character does not have a weapon
   }
@@ -46,10 +47,10 @@ class MagicWeaponTest extends munit.FunSuite{
       case None => println("Character does not have a weapon")
     }
 
-    assert(character.name == "Rona")
-    assert(character.life == 100)
-    assert(character.defense == 200)
-    assert(character.weight == 0)
+    assert(character.getName == "Rona")
+    assert(character.getLife == 100)
+    assert(character.getDefense == 200)
+    assert(character.getWeight == 0)
     assert(character.getMana == 100)
     assertEquals(character.weapon.isEmpty, false) // Check if the character has a weapon
     assert(character.weapon.get.name == "Staff") // Check if the character's weapon is a Wand
@@ -59,10 +60,10 @@ class MagicWeaponTest extends munit.FunSuite{
   test("Character without a weapon") {
     val character = new BlackMage("Rona", 100, 200, 0, 100, None)
 
-    assert(character.name == "Rona")
-    assert(character.life == 100)
-    assert(character.defense == 200)
-    assert(character.weight == 0)
+    assert(character.getName == "Rona")
+    assert(character.getLife == 100)
+    assert(character.getDefense == 200)
+    assert(character.getWeight == 0)
     assert(character.getMana == 100)
     assert(character.weapon.isEmpty) // Check if the character does not have a weapon
 

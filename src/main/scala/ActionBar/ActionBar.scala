@@ -9,7 +9,7 @@ class ActionBar (character: AbstractCharacter) {
   // Extract weapon weight or use default value if None
   val weaponWeight: Double = character.weapon_weight
   // calculate total action bar value
-  var barSize: Double = (character.weight + (0.5 * weaponWeight))
+  var barSize: Double = (character.getWeight + (0.5 * weaponWeight))
   // Current value of action bar
   var status: Double = 0
   // left over turn points after a given turn

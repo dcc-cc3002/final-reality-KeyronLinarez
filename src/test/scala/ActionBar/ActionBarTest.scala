@@ -15,6 +15,9 @@ class ActionBarTest extends munit.FunSuite{
       case None => println("Character does not have a weapon")
     }
     println(character.action_bar.barSize)
+    println(character.getName)
+    println(character.getLife)
+    println(character.getDefense)
 
     assertEquals(character.action_bar.associatedCharacter, character)
     assert(character.action_bar.weaponWeight == 0.2) // Weight of the wand = 0.2

@@ -6,7 +6,7 @@ import TurnScheduler.ActionBar
 // ADD MAGIC EXCLUSIVE SHIT
 
 abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, weight: Double, private var mana: Int,
-                             weapon: Option[MagicWeapon] = None) extends AbstractCharacter(name, life, defense, weight, weapon) {
+                                      weapon: Option[MagicWeapon] = None) extends AbstractCharacter(name, life, defense, weight, weapon) {
 
   def getMana = mana
 }
