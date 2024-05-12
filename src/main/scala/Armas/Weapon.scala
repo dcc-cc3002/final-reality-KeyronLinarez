@@ -5,6 +5,6 @@ package Armas
 trait Weapon {
   val name: String
   var attack: Int
-  var weight: Int
-  val owner: String
+  var weight: Double
+  var owner: String
 }

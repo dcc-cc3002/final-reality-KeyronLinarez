@@ -18,7 +18,4 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Int, mana: Int, w
 
   /** Indicates whether it's the White Mage's turn in combat. */
   var isMyTurn: Boolean = false
-//  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
-//    // Implement the logic for setting the weapon
-//  }
 }
