@@ -7,4 +7,7 @@ trait Weapon {
   var attack: Int
   var weight: Double
   var owner: String
+
+//  def attack_=(value: Int): Unit = this.attack
+//  def weight_=(value: Double): Unit = this.weight
 }

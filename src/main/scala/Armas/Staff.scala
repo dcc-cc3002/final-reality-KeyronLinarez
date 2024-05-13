@@ -5,6 +5,6 @@ class Staff (val name: String = "Staff", val attack: Int = 15, val weight: Doubl
 
   // Implementing the setter methods for the abstract vars
   def magic_attack_=(value: Int): Unit = this.magic_attack
-//  def attack_=(value: Int): Unit = this.attack
-//  def weight_=(value: Double): Unit = this.weight
+  def attack_=(value: Int): Unit = this.attack
+  def weight_=(value: Double): Unit = this.weight
 }

@@ -21,6 +21,14 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
   override def getName: String = name
   override def getLife: Int = life
+  // Setter method for setting life, used by attack
+  def setLife(newLife: Int): Unit = {
+    // Check if the new life value is valid (greater than or equal to 1)
+    Require.Stat(newLife, "life") atLeast 1
+    // Update the life attribute with the new value
+    life = newLife
+  }
+
   override def getDefense: Int = defense
   override def getWeight: Double = weight
 
@@ -44,11 +52,16 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   def attack(target: AbstractCharacter): Int = {
     // if Some(weapon) -> attack damage from weapon, if None -> 0
     val attackDamage = weapon.map(_.attack).getOrElse(0)
+    println(attackDamage)
 
     // Calculate the damage inflicted by subtracting the target's defense points
     val damage = attackDamage - target.getDefense
     // Ensure damage is non-negative
-    if (damage > 0) damage else 0
+    if (damage > 0){
+      target.setLife(life - damage)
+      damage
+    }
+    else 0
   }
   // Set weapon weight based on the presence of a weapon
 
