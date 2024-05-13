@@ -20,11 +20,6 @@ class aParty() {
 
   }
 
-  def printPartyMembers(): Unit = {
-    println("Party Members:")
-    party_list.foreach(character => println(character))
-  }
-
   // Add an associated actionbar for the character
   // For demonstration, let's assume you're creating a new action bar for each character
   //actionbar_list += new ActionBar(character)
