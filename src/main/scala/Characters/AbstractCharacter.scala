@@ -30,6 +30,11 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   var isMyTurn: Boolean
   // initialize  an action bar when a character is created
   var action_bar: ActionBar = new ActionBar(this)
+  def statusCurrentBar: Double = action_bar.status
+  def ActionBarSize: Double = {
+    this.action_bar.barSize
+    //actionbar_list.find(_.associatedCharacter == character)
+  }
   // find weapon weight
   def weapon_weight: Double = weapon match {
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon

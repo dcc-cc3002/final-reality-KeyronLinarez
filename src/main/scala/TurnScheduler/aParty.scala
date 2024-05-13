@@ -10,25 +10,26 @@ class aParty() {
   // make tuple containing characters
   //var party_list: (ListBuffer[AbstractCharacter]) = ListBuffer[AbstractCharacter]
   var party_list: ListBuffer[AbstractCharacter] = ListBuffer.empty[AbstractCharacter]
-
+  var party_size: Int = party_list.size
   // edit both lists individually
   //var (character_list, actionbar_list) = party_tuple
 
-  def findActionBarForCharacter(character: AbstractCharacter): ActionBar = {
-    character.action_bar
-    //actionbar_list.find(_.associatedCharacter == character)
-  }
   def addCharacter(character: AbstractCharacter): Unit = {
     party_list = party_list += character
+    party_size += 1
 
-    // Add an associated actionbar for the character
-    // For demonstration, let's assume you're creating a new action bar for each character
-    //actionbar_list += new ActionBar(character)
-
-    // Update party_tuple with the modified lists
-    //party_tuple = (character_list, actionbar_list)
   }
 
+  def printPartyMembers(): Unit = {
+    println("Party Members:")
+    party_list.foreach(character => println(character))
+  }
+
+  // Add an associated actionbar for the character
+  // For demonstration, let's assume you're creating a new action bar for each character
+  //actionbar_list += new ActionBar(character)
+  // Update party_tuple with the modified lists
+  //party_tuple = (character_list, actionbar_list)
 // Method to remove a character to the party
 def dropCharacter(character: AbstractCharacter): Unit = {
   // !! needs an if in case no action bar is passed
@@ -36,10 +37,11 @@ def dropCharacter(character: AbstractCharacter): Unit = {
   //actionbar_list = actionbar_list -= findActionBarForCharacter(character)
 
   party_list = party_list -= character
+  party_size -= 1
 }
 
-  def isEmpty(current_party: aParty): Boolean = {
-    current_party.party_list.isEmpty
+  def isEmpty: Boolean = {
+    this.party_list.isEmpty
   }
 
 }
