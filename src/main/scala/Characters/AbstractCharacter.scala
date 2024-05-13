@@ -40,6 +40,16 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
   }
+  // Define a method to calculate attack damage
+  def attack(target: AbstractCharacter): Int = {
+    // if Some(weapon) -> attack damage from weapon, if None -> 0
+    val attackDamage = weapon.map(_.attack).getOrElse(0)
+
+    // Calculate the damage inflicted by subtracting the target's defense points
+    val damage = attackDamage - target.getDefense
+    // Ensure damage is non-negative
+    if (damage > 0) damage else 0
+  }
   // Set weapon weight based on the presence of a weapon
 
 }
