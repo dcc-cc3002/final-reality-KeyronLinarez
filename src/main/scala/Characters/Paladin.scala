@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.Weapon
+import Armas.{Axe, Bow, Sword, Wand, Weapon}
 /**
  * Represents a Paladin character
  *
@@ -17,5 +17,14 @@ class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
   extends AbstractCharacter(name, life, defense, weight, weapon) {
   /** Indicates whether it's the paladin's turn in combat. */
   var isMyTurn: Boolean = false
+
+  def canEquip: Boolean = {
+    weapon match {
+      case Some(_: Axe) => true
+      case Some(_: Sword) => true
+      case Some(_) =>  false
+      case None => false
+    }
+  }
 
 }

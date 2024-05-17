@@ -63,6 +63,7 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     }
     else 0
   }
+
   // Set weapon weight based on the presence of a weapon
 
 }

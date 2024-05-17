@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.Weapon
+import Armas.{Bow, Staff, Sword, Wand, Weapon}
 /**
  * Represents a  character
  *
@@ -17,6 +17,16 @@ class Ninja(name: String, life: Int, defense: Int, weight: Double, weapon: Optio
   extends AbstractCharacter(name, life, defense, weight, weapon) {
   /** Indicates whether it's the ninja's turn in combat. */
   var isMyTurn: Boolean = false
+
+  def canEquip: Boolean = {
+    weapon match {
+      case Some(_: Bow) => true
+      case Some(_: Wand) => true
+      case Some(_: Sword) => true
+      case Some(_) =>  false
+      case None => false
+    }
+  }
 //  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
 //    // Implement the logic for setting the weapon
 //  }

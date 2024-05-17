@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.Weapon
+import Armas.{Axe, Sword, Weapon}
 /**
  * Represents a  character
  *
@@ -18,6 +18,15 @@ class Warrior(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
 
   /** Indicates whether it's the Warrior's turn in combat. */
   var isMyTurn: Boolean = false
+
+  def canEquip: Boolean = {
+    weapon match {
+      case Some(_: Axe) => true
+      case Some(_: Sword) => true
+      case Some(_) =>  false
+      case None => false
+    }
+  }
 //  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
 //    // Implement the logic for setting the weapon
 //  }

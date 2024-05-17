@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.MagicWeapon
+import Armas.{MagicWeapon, Staff, Sword, Wand, Weapon}
 /**
  * Represents a  character
  *
@@ -16,12 +16,19 @@ import Armas.MagicWeapon
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
   // Additional code for BlackMage class
-//}
-//
-//class BlackMage(_name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
-//  extends AbstractMagicCharacter(_name, life, defense, weight, mana, weapon){
   /** Indicates whether it's the Black Mage's turn in combat. */
   var isMyTurn: Boolean = false
+
+  def canEquip: Boolean = {
+    weapon match {
+      case Some(_: Staff) => true
+      case Some(_: Wand) => true
+      case Some(_: Sword) => true
+      case Some(_) =>  false
+      case None => false
+    }
+  }
+
 //  weapon match {
 //    case Some(w) => weapon_weight = w.weight // If Some(weapon), set weapon_weight to weapon's weight
 //    case None => weapon_weight = 0 // If None, set weapon_weight to 0 or any default value you prefer
