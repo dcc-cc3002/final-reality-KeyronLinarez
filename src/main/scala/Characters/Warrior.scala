@@ -27,7 +27,4 @@ class Warrior(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
       case None => false
     }
   }
-//  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
-//    // Implement the logic for setting the weapon
-//  }
 }

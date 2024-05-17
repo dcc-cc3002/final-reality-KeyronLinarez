@@ -26,5 +26,4 @@ class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
       case None => false
     }
   }
-
 }

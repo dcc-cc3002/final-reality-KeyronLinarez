@@ -32,18 +32,16 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   override def getDefense: Int = defense
   override def getWeight: Double = weight
 
-//  def getName: String = name
 
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean
-  // initialize  an action bar when a character is created
+  /** initialize  an action bar when a character is created */
   var action_bar: ActionBar = new ActionBar(this)
   def statusCurrentBar: Double = action_bar.status
   def ActionBarSize: Double = {
     this.action_bar.barSize
-    //actionbar_list.find(_.associatedCharacter == character)
   }
-  // find weapon weight
+  /** Return weapon weight */
   def weapon_weight: Double = weapon match {
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
@@ -63,7 +61,4 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     }
     else 0
   }
-
-  // Set weapon weight based on the presence of a weapon
-
 }
