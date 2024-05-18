@@ -18,14 +18,14 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
 
   /** Indicates whether it's the White Mage's turn in combat. */
   var isMyTurn: Boolean = false
-
+  /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {
       case Some(_: Bow) => true
       case Some(_: Wand) => true
       case Some(_: Staff) => true
       case Some(_) =>  false
-      case None => false
+      case None => true
     }
   }
 }

@@ -18,11 +18,12 @@ class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
   /** Indicates whether it's the paladin's turn in combat. */
   var isMyTurn: Boolean = false
 
+  /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {
       case Some(_: Axe) => true
       case Some(_: Sword) => true
-      case Some(_) =>  false
+      case Some(_) =>  throw new IllegalArgumentException("Cannot Equip this weapon")
       case None => false
     }
   }

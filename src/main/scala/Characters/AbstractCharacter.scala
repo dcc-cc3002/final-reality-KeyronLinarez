@@ -3,6 +3,7 @@ package Characters
 import Armas.Weapon
 import TurnScheduler.ActionBar
 import exceptions.Require
+import jdk.internal.joptsimple.internal.Messages.message
 /**
  * Represents an abstract character with common attributes and behavior.
  * Subclasses are expected to implement specific functionality.
@@ -17,7 +18,19 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   Require.Stat(defense, "defense") atLeast 0
   Require.Stat(weight.toInt, "weight") atLeast 0
 
-  ////
+  /** canEquip method performed during new object creation, checks if valid weapon */
+  def canEquip: Boolean
+
+  /** catches exception IF valid weapon is not passed as an object to character */
+  try {
+    canEquip
+    }
+  catch {
+    case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
+  }
+  finally {
+    println("Valid weapon")
+  }
 
   override def getName: String = name
   override def getLife: Int = life

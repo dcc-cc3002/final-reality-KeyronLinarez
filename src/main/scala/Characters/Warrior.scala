@@ -18,7 +18,7 @@ class Warrior(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
 
   /** Indicates whether it's the Warrior's turn in combat. */
   var isMyTurn: Boolean = false
-
+  /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {
       case Some(_: Axe) => true

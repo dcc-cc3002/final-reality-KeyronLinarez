@@ -18,22 +18,14 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   // Additional code for BlackMage class
   /** Indicates whether it's the Black Mage's turn in combat. */
   var isMyTurn: Boolean = false
-
+  /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {
       case Some(_: Staff) => true
       case Some(_: Wand) => true
       case Some(_: Sword) => true
       case Some(_) =>  false
-      case None => false
+      case None => true
     }
   }
-
-//  weapon match {
-//    case Some(w) => weapon_weight = w.weight // If Some(weapon), set weapon_weight to weapon's weight
-//    case None => weapon_weight = 0 // If None, set weapon_weight to 0 or any default value you prefer
-//  }
-//  def weapon_=(x$1: Option[Armas.Weapon]): Unit = {
-//    // Implement the logic for setting the weapon
-//  }
 }
