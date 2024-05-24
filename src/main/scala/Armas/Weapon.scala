@@ -1,11 +1,26 @@
 package Armas
 
-//- Un arma debe tener nombre, puntos de ataque, peso, y un dueño.
-
+/**
+ * A trait representing a weapon.
+ */
 trait Weapon {
+  /**
+   * The name of the weapon.
+   */
   val name: String
-  var attack: Int
-  var weight: Double
-  var owner: String
 
+  /**
+   * The attack power of the weapon.
+   */
+  var attack: Int
+
+  /**
+   * The weight of the weapon in kilograms.
+   */
+  var weight: Double
+
+  /**
+   * The name of the owner of the weapon.
+   */
+  var owner: String
 }

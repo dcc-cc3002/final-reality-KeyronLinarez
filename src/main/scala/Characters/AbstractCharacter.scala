@@ -20,6 +20,8 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
   /** canEquip method performed during new object creation, checks if valid weapon */
   def canEquip: Boolean
+  def equip(weapon: Weapon) : Unit
+  // (weapon: GameWeapon): Unit = weapon.equip(this)
 
   /** catches exception IF valid weapon is not passed as an object to character */
   try {
