@@ -2,6 +2,7 @@ package TurnScheduler
 
 import Characters.AbstractCharacter
 import TurnScheduler.ActionBar
+import exceptions.Require
 
 import scala.::
 import scala.collection.mutable.ListBuffer
@@ -11,6 +12,8 @@ class aParty() {
   //var party_list: (ListBuffer[AbstractCharacter]) = ListBuffer[AbstractCharacter]
   var party_list: ListBuffer[AbstractCharacter] = ListBuffer.empty[AbstractCharacter]
   var party_size: Int = party_list.size
+  // ensures a party can only have 3 members
+  Require.Stat(party_size, "party size") atLeast 3
   // edit both lists individually
   //var (character_list, actionbar_list) = party_tuple
 

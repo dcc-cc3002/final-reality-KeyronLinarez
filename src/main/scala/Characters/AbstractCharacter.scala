@@ -4,6 +4,8 @@ import Armas.Weapon
 import TurnScheduler.ActionBar
 import exceptions.Require
 import jdk.internal.joptsimple.internal.Messages.message
+
+import scala.language.postfixOps
 /**
  * Represents an abstract character with common attributes and behavior.
  * Subclasses are expected to implement specific functionality.
@@ -20,9 +22,20 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
   /** canEquip method performed during new object creation, checks if valid weapon */
   def canEquip: Boolean
-  def equip(weapon: Weapon) : Unit
-  // (weapon: GameWeapon): Unit = weapon.equip(this)
 
+  /** tryEquip allows a weapon equip only if the weapon is valid */
+  def tryEquip(weapon: Weapon) : Unit = {
+    this.weapon_=(Some(weapon))
+    if (!canEquip){
+      this.weapon = None
+    } else{
+      weapon.equip(this)
+    }
+  }
+  /** unEquip sets character's weapon back to None */
+  def unEquip(): Unit = {
+    this.weapon = None
+  }
   /** catches exception IF valid weapon is not passed as an object to character */
   try {
     canEquip
@@ -62,18 +75,21 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     case None => 0.0 // If None, return 0 or any default value you prefer
   }
   // Define a method to calculate attack damage
+  /** attack calculates attack damage between attacker and attackee */
   def attack(target: AbstractCharacter): Int = {
-    // if Some(weapon) -> attack damage from weapon, if None -> 0
-    val attackDamage = weapon.map(_.attack).getOrElse(0)
-    println(attackDamage)
-
-    // Calculate the damage inflicted by subtracting the target's defense points
-    val damage = attackDamage - target.getDefense
-    // Ensure damage is non-negative
-    if (damage > 0){
-      target.setLife(life - damage)
-      damage
+    // Check if the target is of the same type
+    if (target.getClass == this.getClass) {
+      0 // damage is zero if attacking the same type
+    } else {
+      // Calculate attack damage based on the weapon
+      val attackDamage = weapon.map(_.attack).getOrElse(0)
+      // Calculate the damage inflicted by subtracting the target's defense points
+      val damage = attackDamage - target.getDefense
+      // Ensure damage is non-negative
+      if (damage > 0) {
+        target.setLife(target.getLife - damage)
+        damage
+      } else 0
     }
-    else 0
   }
 }

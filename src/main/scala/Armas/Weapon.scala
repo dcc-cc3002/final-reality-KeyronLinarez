@@ -1,5 +1,7 @@
 package Armas
 
+import Characters.AbstractCharacter
+
 /**
  * A trait representing a weapon.
  */
@@ -23,4 +25,10 @@ trait Weapon {
    * The name of the owner of the weapon.
    */
   var owner: String
+  /**
+   * Method for equipping weapon, updates the weapon's owner
+   */
+  def equip(character: AbstractCharacter): Unit = {
+    this.owner = character.getName
+  }
 }
