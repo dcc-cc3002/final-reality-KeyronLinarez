@@ -5,7 +5,7 @@ package Armas
  * @param name The name of the sword.
  * @param attack  The attack life of the sword.
  * @param weight  The weight of the sword.
- * @param weapon  The owner of the sword.
+ * @param owner  The owner of the sword.
  *
  * @constructor Creates a new sword with the specified attributes.
  *

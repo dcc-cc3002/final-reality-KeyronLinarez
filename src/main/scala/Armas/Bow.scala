@@ -5,7 +5,7 @@ package Armas
  * @param name The name of the bow.
  * @param attack  The attack life of the bow.
  * @param weight  The weight of the bow.
- * @param weapon  The owner of the bow.
+ * @param owner  The owner of the bow.
  *
  * @constructor Creates a new bow with the specified attributes.
  *

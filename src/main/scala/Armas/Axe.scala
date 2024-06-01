@@ -6,7 +6,7 @@ package Armas
  * @param name The name of the axe.
  * @param attack  The attack life of the axe.
  * @param weight  The weight of the axe.
- * @param weapon  The owner of the axe.
+ * @param owner  The owner of the axe.
  *
  * @constructor Creates a new axe with the specified attributes.
  *
