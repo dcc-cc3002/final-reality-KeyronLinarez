@@ -1,6 +1,6 @@
 package Armas
 /**
- * Represents a wand
+ * Represents a wand weapon
  *
  * @param name The name of the wand.
  * @param attack  The attack life of the wand.

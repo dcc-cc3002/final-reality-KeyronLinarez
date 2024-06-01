@@ -1,6 +1,6 @@
 package Armas
 /**
- * Represents a bow
+ * Represents a bow weapon
  *
  * @param name The name of the bow.
  * @param attack  The attack life of the bow.

@@ -1,7 +1,7 @@
 package Armas
 
 /**
- * Represents a axe
+ * Represents an axe weapon
  *
  * @param name The name of the axe.
  * @param attack  The attack life of the axe.

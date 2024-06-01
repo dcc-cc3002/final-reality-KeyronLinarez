@@ -1,6 +1,6 @@
 package Armas
 /**
- * Represents a staff
+ * Represents a staff weapon
  *
  * @param name The name of the staff.
  * @param attack  The attack life of the staff.

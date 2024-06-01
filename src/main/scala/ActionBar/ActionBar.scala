@@ -9,7 +9,7 @@ import Characters.{AbstractCharacter, Character}
  * @constructor Creates a new ActionBar for the specified character.
  * @param character The character associated with this action bar.
  */
-class ActionBar(character: AbstractCharacter) {
+class ActionBar(character: Character) {
 
   /** Initially set the character's turn status to false */
   character.isMyTurn = false
@@ -18,7 +18,7 @@ class ActionBar(character: AbstractCharacter) {
    * The character associated with this action bar.
    * It corresponds to the current index value of a character in a party.
    */
-  val associatedCharacter: AbstractCharacter = character
+  val associatedCharacter: Character = character
 
   /**
    * The weight of the character's weapon.

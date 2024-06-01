@@ -1,6 +1,6 @@
 package Armas
 /**
- * Represents a  Sword
+ * Represents a Sword weapon
  *
  * @param name The name of the sword.
  * @param attack  The attack life of the sword.

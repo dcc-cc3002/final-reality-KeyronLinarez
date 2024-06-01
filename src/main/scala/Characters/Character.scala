@@ -1,6 +1,7 @@
 package Characters
 
 import Armas.Weapon
+import TurnScheduler.ActionBar
 
 /**
  * Trait representing a basic character with common attributes.
@@ -8,6 +9,13 @@ import Armas.Weapon
 trait Character {
   /**The name of the character. Default is "DefaultName". */
   private val name: String = "DefaultName"
+
+  /** A boolean that indicates whether the character's turn in active. */
+  var isMyTurn: Boolean
+  /** initialize  an action bar when a character is created */
+  var action_bar: ActionBar
+  def statusCurrentBar: Double
+  def actionBarSize: Double
 
   /**
    * The life points of the character. Default is 1.

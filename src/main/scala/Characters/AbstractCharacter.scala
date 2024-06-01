@@ -62,11 +62,11 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
 
   /** A boolean that indicates whether the character's turn in active. */
-  var isMyTurn: Boolean
+  var isMyTurn: Boolean = false
   /** initialize  an action bar when a character is created */
   var action_bar: ActionBar = new ActionBar(this)
   def statusCurrentBar: Double = action_bar.status
-  def ActionBarSize: Double = {
+  def actionBarSize: Double = {
     this.action_bar.barSize
   }
   /** Return weapon weight */
@@ -74,14 +74,12 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
   }
-  // Define a method to calculate attack damage
   /** attack calculates attack damage between attacker and attackee */
   def attack(target: AbstractCharacter): Int = {
-    // Check if the target is of the same type
-    if (target.getClass == this.getClass) {
+
+    if (target.getClass == this.getClass) { // Check if the target is of the same type
       0 // damage is zero if attacking the same type
     } else {
-      // Calculate attack damage based on the weapon
       val attackDamage = weapon.map(_.attack).getOrElse(0)
       // Calculate the damage inflicted by subtracting the target's defense points
       val damage = attackDamage - target.getDefense
