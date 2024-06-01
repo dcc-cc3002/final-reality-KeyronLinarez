@@ -16,7 +16,7 @@ import Armas.{Axe, Bow, Sword, Wand, Weapon}
 class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Option[Weapon])
   extends AbstractCharacter(name, life, defense, weight, weapon) {
   /** Indicates whether it's the paladin's turn in combat. */
-  var isMyTurn: Boolean = false
+//  var isMyTurn: Boolean = false
 
   /** Check if valid weapon */
   def canEquip: Boolean = {

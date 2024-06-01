@@ -11,7 +11,7 @@ class ActionBarTest extends munit.FunSuite{
     val character = new BlackMage("Rona", 10, 2000, 10, 100, Some(new Wand()))
 
     character.weapon match {
-      case Some(weapon) => println(s"Weapon weight: ${character.weapon_weight}")
+      case Some(weapon) => println(s"Weapon weight: ${character.weaponWeight}")
       case None => println("Character does not have a weapon")
     }
     println(character.action_bar.barSize)

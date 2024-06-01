@@ -17,7 +17,7 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon){
 
   /** Indicates whether it's the White Mage's turn in combat. */
-  var isMyTurn: Boolean = false
+//  var isMyTurn: Boolean = false
   /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {

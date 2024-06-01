@@ -17,8 +17,6 @@ abstract class AbstractEnemy(private val name: String, private var life: Int, pr
   Require.Stat(weight.toInt, "weight") atLeast 0
   Require.Stat(attack.toInt, "weight") atLeast 0
 
-  /** A boolean that indicates whether the character's turn in active. */
-  var isMyTurn: Boolean
 
   def attackTarget(target: AbstractCharacter): Double = {
     /** if Some(weapon) -> attack damage from weapon, if None -> 0 */

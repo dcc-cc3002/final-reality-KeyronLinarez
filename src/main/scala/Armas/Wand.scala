@@ -13,8 +13,7 @@ package Armas
 class Wand (val name: String = "Wand", val attack: Int = 5, val weight: Double = 0.2,
             var owner: String = "",  val magicAttack: Int = 30) extends MagicWeapon {
   /** Getter for the magic attack value of a magic weapon */
-  def magic_attack_=(value: Int): Unit = this.magicAttack
-
+  def magicAttack_=(x$1: Int): Unit = this.magicAttack
   /** Getter for the (non-magic) attack value of a magic weapon */
   def attack_=(value: Int): Unit = this.attack
 

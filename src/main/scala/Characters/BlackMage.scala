@@ -15,8 +15,6 @@ import Armas.{MagicWeapon, Staff, Sword, Wand, Weapon}
  */
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
-  /** Indicates whether it's the Black Mage's turn in combat. */
-  var isMyTurn: Boolean = false
   /** Check if valid weapon */
   def canEquip: Boolean = {
     weapon match {

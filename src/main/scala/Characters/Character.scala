@@ -9,7 +9,8 @@ import TurnScheduler.ActionBar
 trait Character {
   /**The name of the character. Default is "DefaultName". */
   private val name: String = "DefaultName"
-
+  /**A character's weapon's weight, zero if no weapon equipped. */
+  def weaponWeight: Double
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean
   /** initialize  an action bar when a character is created */
