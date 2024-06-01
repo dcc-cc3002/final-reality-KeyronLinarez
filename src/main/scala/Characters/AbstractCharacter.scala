@@ -70,7 +70,7 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     this.action_bar.barSize
   }
   /** Return weapon weight */
-  def weapon_weight: Double = weapon match {
+  def weaponWeight: Double = weapon match {
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
   }

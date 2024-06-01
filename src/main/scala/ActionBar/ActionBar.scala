@@ -7,7 +7,7 @@ class ActionBar (character: AbstractCharacter) {
   // current index value corresponding to a character in a party
   val associatedCharacter: AbstractCharacter = character
   // Extract weapon weight or use default value if None
-  val weaponWeight: Double = character.weapon_weight
+  val weaponWeight: Double = character.weaponWeight
   // calculate total action bar value
   var barSize: Double = (character.getWeight + (0.5 * weaponWeight))
   // Current value of action bar
