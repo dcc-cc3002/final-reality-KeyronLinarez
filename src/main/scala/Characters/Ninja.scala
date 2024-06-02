@@ -18,13 +18,13 @@ class Ninja(name: String, life: Int, defense: Int, weight: Double, weapon: Optio
   /** Indicates whether it's the ninja's turn in combat. */
 //  var isMyTurn: Boolean = false
   /** Check if valid weapon */
-  def canEquip: Boolean = {
-    weapon match {
+  def canEquip(w: Some[Weapon]): Boolean = {
+    w match {
       case Some(_: Bow) => true
       case Some(_: Wand) => true
       case Some(_: Sword) => true
       case Some(_) =>  false
-      case None => false
+      case _ => false
     }
   }
 }

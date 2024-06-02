@@ -19,7 +19,7 @@ class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
 //  var isMyTurn: Boolean = false
 
   /** Check if valid weapon */
-  def canEquip: Boolean = {
+  def canEquip(Weapon: Weapon): Boolean = {
     weapon match {
       case Some(_: Axe) => true
       case Some(_: Sword) => true

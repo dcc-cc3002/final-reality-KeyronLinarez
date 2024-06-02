@@ -16,7 +16,7 @@ import Armas.{MagicWeapon, Staff, Sword, Wand, Weapon}
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
   /** Check if valid weapon */
-  def canEquip: Boolean = {
+  def canEquip(Weapon: Weapon): Boolean = {
     weapon match {
       case Some(_: Staff) => true
       case Some(_: Wand) => true
@@ -25,4 +25,5 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
       case None => true
     }
   }
+
 }

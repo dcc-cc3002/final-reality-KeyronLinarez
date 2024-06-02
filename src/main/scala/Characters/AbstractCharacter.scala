@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.Weapon
+import Armas.{Bow, Weapon}
 import TurnScheduler.ActionBar
 import exceptions.Require
 import jdk.internal.joptsimple.internal.Messages.message
@@ -21,15 +21,21 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   Require.Stat(weight.toInt, "weight") atLeast 0
 
   /** canEquip method performed during new object creation, checks if valid weapon */
-  def canEquip: Boolean
+  def canEquip(weapon: Weapon): Boolean
 
-  /** tryEquip allows a weapon equip only if the weapon is valid */
-  def tryEquip(weapon: Weapon) : Unit = {
+  override def getWeapon: Option[Weapon] = weapon
+
+  /** equip allows a weapon equip only if the weapon is valid */
+  def equip(weapon: Weapon) : Unit = {
+    println("Weapon: " + weapon)
+    println("Me: " + this.canEquip(new Bow()))
     this.weapon_=(Some(weapon))
-    if (!canEquip){
-      this.weapon = None
+    if (this.canEquip(weapon)){
+      println("jackpot")
+      this.weapon = Some(weapon)
     } else{
-      weapon.equip(this)
+      println("Nonezo")
+      this.weapon = None
     }
   }
   /** unEquip sets character's weapon back to None */
@@ -38,7 +44,7 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   }
   /** catches exception IF valid weapon is not passed as an object to character */
   try {
-    canEquip
+    canEquip(weapon.get)
     }
   catch {
     case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
@@ -59,7 +65,6 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
   override def getDefense: Int = defense
   override def getWeight: Double = weight
-
 
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean = false

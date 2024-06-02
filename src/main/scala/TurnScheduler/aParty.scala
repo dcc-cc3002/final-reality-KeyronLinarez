@@ -19,7 +19,7 @@ class aParty() {
   var party_size: Int = party_list.size
 
   // Ensures a party can only have 3 members
-  Require.Stat(party_size, "party size") atLeast 3
+  Require.Stat(party_size, "party size") atLeast 0
 
   /**
    * Adds a character to the party.
@@ -54,9 +54,6 @@ class aParty() {
   }
 
 }
-
-
-
 
 // Add an associated actionbar for the character
 // For demonstration, let's assume you're creating a new action bar for each character

@@ -18,6 +18,9 @@ class Enemy(name: String, life: Int, defense: Int, weight: Double, attack: Doubl
   extends AbstractEnemy(name, life, defense, weight, None, attack) {
 
   /** Indicates whether it's the Guerrero's turn in combat. */
-//  override def isMyTurn: Boolean = false
-
+  def canEquip(Weapon: Weapon): Boolean = {
+    weapon match {
+      case _ => false
+    }
+  }
 }

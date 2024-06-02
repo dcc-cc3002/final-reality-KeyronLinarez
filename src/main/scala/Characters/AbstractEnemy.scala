@@ -28,5 +28,5 @@ abstract class AbstractEnemy(private val name: String, private var life: Int, pr
   }
 
   /** A enemy with a weapon is invalid by default */
-  override def canEquip: Boolean = false
+//  override def canEquip: Boolean = false
 }

@@ -15,8 +15,12 @@ trait Character {
   var isMyTurn: Boolean
   /** initialize  an action bar when a character is created */
   var action_bar: ActionBar
+
   def statusCurrentBar: Double
+
   def actionBarSize: Double
+
+  def getWeapon: Option[Weapon]
 
   /**
    * The life points of the character. Default is 1.
