@@ -30,6 +30,18 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     println("Weapon: " + weapon)
     println("Me: " + this.canEquip(new Bow()))
     this.weapon_=(Some(weapon))
+
+    /** catches exception IF valid weapon is not passed as an object to character */
+    try {
+      canEquip(this.weapon.get)
+    }
+    catch {
+      case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
+    }
+    finally {
+      println("Valid weapon")
+    }
+
     if (this.canEquip(weapon)){
       println("jackpot")
       this.weapon = Some(weapon)
@@ -41,16 +53,6 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** unEquip sets character's weapon back to None */
   def unEquip(): Unit = {
     this.weapon = None
-  }
-  /** catches exception IF valid weapon is not passed as an object to character */
-  try {
-    canEquip(weapon.get)
-    }
-  catch {
-    case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
-  }
-  finally {
-    println("Valid weapon")
   }
 
   override def getName: String = name

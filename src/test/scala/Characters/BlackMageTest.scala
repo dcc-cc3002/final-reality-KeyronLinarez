@@ -14,6 +14,5 @@ class BlackMageTest extends munit.FunSuite{
   test(name = "A character should attack an enemy") {
     assertEquals(character.attack(enemy), 0)
   }
-
 }
 

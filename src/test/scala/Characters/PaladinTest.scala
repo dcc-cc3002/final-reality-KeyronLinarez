@@ -8,6 +8,7 @@ import Characters.{AbstractCharacter, Warrior}
 
 
     test(name = "A character should have a negative value for isMyTurn") {
+      println("PALADIN TESTTTT")
       assertEquals(character.isMyTurn, false)
     }
 

@@ -20,6 +20,8 @@ class Ninja(name: String, life: Int, defense: Int, weight: Double, weapon: Optio
 
   /** Check if valid weapon */
   def canEquip(weapon: Weapon): Boolean = {
+    print("hi i am in canEquip, this should break fr fr")
+    println(weapon)
     weapon match {
       case _: Bow => true
       case _: Wand => true
