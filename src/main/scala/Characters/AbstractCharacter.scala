@@ -55,9 +55,12 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     this.weapon = None
   }
 
+  /** getter method for a character's name */
   override def getName: String = name
+  /** getter method for a character's life */
   override def getLife: Int = life
-  // Setter method for setting life, used by attack
+
+  /** Setter method for setting life, used by attack method */
   def setLife(newLife: Int): Unit = {
     // Check if the new life value is valid (greater than or equal to 1)
     Require.Stat(newLife, "life") atLeast 1
@@ -76,18 +79,22 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   def actionBarSize: Double = {
     this.action_bar.barSize
   }
-  /** Return weapon weight */
+  /** Return weapon weight if weapon is equipped,
+   * return nothing if no weapon */
   def weaponWeight: Double = weapon match {
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
   }
-  /** attack calculates attack damage between attacker and attackee */
+  /** attack calculates attack damage between attacker and attackee
+   * This method retrievs a weapon's attack from the attackee's equipped weapon
+   * Or returns 0 attack if no weapon is equpped */
   def attack(target: AbstractCharacter): Int = {
 
     if (target.getClass == this.getClass) { // Check if the target is of the same type
       throw new IllegalArgumentException("Cannot attack your ally")
       0 // damage is zero if attacking the same type
     } else {
+      // get attack value from weapon, or 0 if None
       val attackDamage = weapon.map(_.attack).getOrElse(0)
       // Calculate the damage inflicted by subtracting the target's defense points
       val damage = attackDamage - target.getDefense
