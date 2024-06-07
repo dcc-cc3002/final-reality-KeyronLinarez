@@ -19,15 +19,13 @@ class NinjaTest extends munit.FunSuite{
   test("A ninja should be able to equip a Bow"){
     ninja.equip(bow)
     val w = ninja.getWeapon.get
-    println(w)
-    println("BRUH")
     assertEquals(w, bow)
   }
+
 
   test("Ninja should equip a sword") {
     ninja.equip(sword)
     val w = ninja.getWeapon.get
-    print("I AM PRITING OUT W: " + w)
     assertEquals(w, sword)
   }
 
@@ -39,8 +37,6 @@ class NinjaTest extends munit.FunSuite{
 
   test("Ninja should not be able to equip an Axe") {
     val ninja = new Ninja("Ninja", 100, 50, 75.0, None)
-
-    println("LAST TEST")
     ninja.equip(axe)
     assertEquals(ninja.weapon, None)
 
@@ -53,11 +49,11 @@ class NinjaTest extends munit.FunSuite{
   }
 
   test("Ninja should be able to uneqip a Sword after equipping it") {
-    val ninja = new Ninja("Ninja", 100, 50, 75.0, Some(new Sword))
-
-//    ninja.equip(None)
-//    assertEquals(ninja.weapon, None)
+    val ninja = new Ninja("Ninja", 100, 50, 75.0, None)
+    ninja.equip(sword)
+    assertEquals(ninja.getWeapon.get, sword)
+    ninja.unEquip()
+    assertEquals(ninja.weapon, None)
   }
-
 }
 
