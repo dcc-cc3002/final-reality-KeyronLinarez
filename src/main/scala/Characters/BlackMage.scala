@@ -1,6 +1,6 @@
 package Characters
 
-import Armas.{MagicWeapon, Staff, Sword, Wand, Weapon}
+import Armas.{Bow, MagicWeapon, Staff, Sword, Wand, Weapon}
 /**
  * Represents a  character
  *
@@ -16,13 +16,12 @@ import Armas.{MagicWeapon, Staff, Sword, Wand, Weapon}
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
   /** Check if valid weapon */
-  def canEquip(Weapon: Weapon): Boolean = {
+  def canEquip(weapon: Weapon): Boolean = {
     weapon match {
-      case Some(_: Staff) => true
-      case Some(_: Wand) => true
-      case Some(_: Sword) => true
-      case Some(_) =>  false
-      case None => true
+      case _: Sword => true
+      case _: Wand => true
+      case _: Staff => true
+      case _ => false
     }
   }
 
