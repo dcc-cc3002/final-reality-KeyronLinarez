@@ -3,7 +3,7 @@ package Characters
 import Armas.{Axe, Bow, Staff, Sword, Wand, Weapon}
 import Characters.{AbstractCharacter, Warrior}
 
-class blackmageTest extends munit.FunSuite{
+class BlackMageTest extends munit.FunSuite{
   val character = new BlackMage("Rona", 100, 200, 0, 100, Some(new Staff))
   val enemy = new Enemy("Mega", 100, 200, 10.0, 0.0)
 
@@ -68,5 +68,25 @@ class blackmageTest extends munit.FunSuite{
     blackmage.unEquip()
     assertEquals(blackmage.weapon, None)
   }
+  // Test case for getDefense method
+  test("getDefense method should return the defense of the character") {
+    assertEquals(character.getDefense, 200)
+  }
+
+  // Test case for getWeight method
+  test("getWeight method should return the weight of the character") {
+    assertEquals(character.getWeight, 0.0)
+  }
+
+  // Test case for getDefense method
+  test("getName method should return the name of the character") {
+    assertEquals(character.getName, "Rona")
+  }
+
+  // Test case for getWeight method
+  test("getLife method should return the life of the character") {
+    assertEquals(character.getLife, 100)
+  }
+
 
 }
