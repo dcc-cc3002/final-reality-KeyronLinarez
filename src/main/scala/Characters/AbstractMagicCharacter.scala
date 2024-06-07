@@ -27,23 +27,33 @@ abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, wei
    * @param target The character to be receiving damage
    */
   def hechizo(target: Character): Int = {
-    // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
-    if (this.getWeapon.isEmpty){
-      0
-    }
-    if (target.getClass == this.getClass) { // Check if the target is of the same type
-      throw new IllegalArgumentException("Cannot attack your allyQ")
-      0 // damage is zero if attacking the same type
-    } else {
-      // get MAGIC ATTACK value from weapon, or 0 if None
-      val attackDamage = weapon.map(_.magicAttack).getOrElse(0)
-      // Calculate the damage inflicted by subtracting the target's defense points
-      val damage = attackDamage - target.getDefense
-      // Ensure damage is non-negative
-      if (damage > 0) {
-        target.setLife(target.getLife - damage)
-        damage
-      } else 0
+    try {
+      // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
+      if (this.getWeapon.isEmpty) {
+        0
+      }
+      if (target.getClass == this.getClass) { // Check if the target is of the same type
+        throw new IllegalArgumentException("Cannot attack your allyQ")
+        0 // damage is zero if attacking the same type
+      } else {
+        // get MAGIC ATTACK value from weapon, or 0 if None
+        val attackDamage = weapon.map(_.magicAttack).getOrElse(0)
+        // Calculate the damage inflicted by subtracting the target's defense points
+        val damage = attackDamage - target.getDefense
+        // Ensure damage is non-negative
+        if (damage > 0) {
+          target.setLife(target.getLife - damage)
+          damage
+        } else 0
+      }
+    } catch {
+      case e: IllegalArgumentException =>
+        println(s"Caught IllegalArgumentException: ${e.getMessage}")
+        0
+      case _: Throwable =>
+        println("An unexpected error occurred")
+        0
+      }
     }
   }
-}
+

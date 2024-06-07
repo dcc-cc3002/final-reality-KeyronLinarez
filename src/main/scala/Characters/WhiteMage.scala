@@ -29,9 +29,11 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   }
 
   def heal (target: Character): Unit = {
+    // check current spellcaster
     // heal 30% of total health
     useMana(15)
   }
+}
 
   def poison (target: Character): Unit = {
     // 100% poison
@@ -42,5 +44,20 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
     // 100% paralize
     useMana(25)
   }
+
+def lightning(target: Character): Unit = {
+  throw new IllegalArgumentException("White mage can only use white magic")
+
+}
+
+def fire(target: Character): Unit = {
+  throw new IllegalArgumentException("White mage can only use white magic")
+
+}
+
+def heal(target: Character): Unit = {
+  throw new IllegalArgumentException("White mage can only use white magic")
+
+}
 
 }
