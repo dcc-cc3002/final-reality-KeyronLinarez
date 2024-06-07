@@ -85,6 +85,7 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   def attack(target: AbstractCharacter): Int = {
 
     if (target.getClass == this.getClass) { // Check if the target is of the same type
+      throw new IllegalArgumentException("Cannot attack your ally")
       0 // damage is zero if attacking the same type
     } else {
       val attackDamage = weapon.map(_.attack).getOrElse(0)
