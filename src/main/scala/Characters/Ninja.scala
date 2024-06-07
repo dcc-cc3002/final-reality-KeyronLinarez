@@ -16,14 +16,14 @@ import Armas.{Bow, Staff, Sword, Wand, Weapon}
 class Ninja(name: String, life: Int, defense: Int, weight: Double, weapon: Option[Weapon])
   extends AbstractCharacter(name, life, defense, weight, weapon) {
   /** Indicates whether it's the ninja's turn in combat. */
-//  var isMyTurn: Boolean = false
+  //  var isMyTurn: Boolean = false
+
   /** Check if valid weapon */
-  def canEquip(w: Some[Weapon]): Boolean = {
-    w match {
-      case Some(_: Bow) => true
-      case Some(_: Wand) => true
-      case Some(_: Sword) => true
-      case Some(_) =>  false
+  def canEquip(weapon: Weapon): Boolean = {
+    weapon match {
+      case _: Bow => true
+      case _: Wand => true
+      case _: Sword => true
       case _ => false
     }
   }

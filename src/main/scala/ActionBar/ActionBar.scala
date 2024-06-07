@@ -41,25 +41,10 @@ class ActionBar(character: Character) {
    * This is used to keep track of any remaining action points that can be carried over to the next turn.
    */
   var leftoverTurnPoints: Double = 0
-
+  /**
+   * The leftover turn points after a given turn.
+   * This is used to keep track of the current amount of points to add to the subsequent action bar.
+   */
   var surplusPoints: Double = 0
-
-  //  /** A boolean that returns the current action bar quantity. */
-  //  var status: Int
-  //  /**
-  //   * Returns the character's action bar size.
-  //   *
-  //   * @return The float representing the character's action bar size.
-  //   */
-  //  def barSize(): Float
-  //  /**
-  //   * Returns the character's remaining experience after a turn where
-  //   * their action bar filled up
-  //   *
-  //   * @return The float int the character's remaining action bar size
-  //   *         after removing the full bar's quantity.
-  //   */
-  //  def surplusPoints(): Int
-
 
 }
