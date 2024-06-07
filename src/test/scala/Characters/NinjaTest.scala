@@ -63,7 +63,7 @@ class NinjaTest extends munit.FunSuite{
 
   // Test case for getWeight method
   test("getWeight method should return the weight of the character") {
-    assertEquals(ninja.getWeight, 0.0)
+    assertEquals(ninja.getWeight, 10.0)
   }
 
   // Test case for getDefense method
@@ -73,7 +73,7 @@ class NinjaTest extends munit.FunSuite{
 
   // Test case for getWeight method
   test("getLife method should return the life of the character") {
-    assertEquals(ninja.getLife, 0)
+    assertEquals(ninja.getLife, 100)
   }
 }
 

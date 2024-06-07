@@ -8,4 +8,5 @@ abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, wei
    * Method to return the mana of a magic character
    */
   def getMana: Int = mana
+
 }

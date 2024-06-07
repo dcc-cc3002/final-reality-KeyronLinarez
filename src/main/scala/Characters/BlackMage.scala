@@ -24,5 +24,16 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
       case _ => false
     }
   }
+  //- Un hechizo debe poder lanzarse sobre un objetivo
+  //
+  //- Al lanzar un hechizo con éxito se debe descontar el maná correspondiente
+
+  def lightning (target: Character): Unit = {
+
+  }
+
+  def fire (target: Character): Unit = {
+
+  }
 
 }

@@ -27,4 +27,15 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
       case _ => false
     }
   }
+
+  def heal (target: Character): Unit = {
+
+  }
+  def poison (target: Character): Unit = {
+
+  }
+  def paralysis  (target: Character): Unit = {
+
+  }
+
 }
