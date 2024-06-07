@@ -28,18 +28,18 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** equip allows a weapon equip only if the weapon is valid */
   def equip(weapon: Weapon) : Unit = {
     println("Weapon: " + weapon)
-    println("Me: " + this.canEquip(new Bow()))
+//    println("Me: " + this.canEquip(new Bow()))
     this.weapon_=(Some(weapon))
 
     /** catches exception IF valid weapon is not passed as an object to character */
     try {
-      canEquip(this.weapon.get)
+      println(canEquip(this.weapon.get))
+      if (!canEquip(this.weapon.get)){
+        throw new IllegalArgumentException("Cannot Equip this weapon")
+      }
     }
     catch {
       case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
-    }
-    finally {
-      println("Valid weapon")
     }
 
     if (this.canEquip(weapon)){

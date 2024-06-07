@@ -37,17 +37,19 @@ class NinjaTest extends munit.FunSuite{
     assertEquals(w, wand)
   }
 
-  test("Ninja should throw exception for invalid weapons") {
+  test("Ninja should not be able to equip an Axe") {
     val ninja = new Ninja("Ninja", 100, 50, 75.0, None)
 
     println("LAST TEST")
-    intercept[IllegalArgumentException] {
-      ninja.equip(axe)
-    }
+    ninja.equip(axe)
+    assertEquals(ninja.weapon, None)
 
-    intercept[IllegalArgumentException] {
-      ninja.equip(staff)
-    }
+  }
+
+  test("Ninja should not be able to equip a Staff") {
+    val ninja = new Ninja("Ninja", 100, 50, 75.0, None)
+    ninja.equip(staff)
+    assertEquals(ninja.weapon, None)
   }
 
   test("Ninja should be able to uneqip a Sword after equipping it") {
