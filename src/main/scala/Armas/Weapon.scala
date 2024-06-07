@@ -27,12 +27,20 @@ trait Weapon {
   var owner: String
 
   /**
-   * A method to set a weapon's owner string after initialization
+   * Equips the weapon to the specified character.
+   *
+   * @param character The character that the weapon is being equipped by
    */
   def setOwner(character: Character): Unit = {
     owner = character.getName
   }
 
+  /**
+   * Equips the weapon to the specified character.
+   *
+   * @param character The character to whom the weapon should be equipped.
+   * @throws IllegalArgumentException if the weapon already has an owner.
+   */
 
   def equip(character: Character): Unit = {
     if (this.owner == "") {

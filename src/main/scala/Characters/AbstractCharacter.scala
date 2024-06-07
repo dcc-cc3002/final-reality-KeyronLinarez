@@ -67,18 +67,22 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     // Update the life attribute with the new value
     life = newLife
   }
-
+  /** Getter method for a character's defense stat */
   override def getDefense: Int = defense
+  /** Getter method for a character's weight stat */
   override def getWeight: Double = weight
 
   /** A boolean that indicates whether the character's turn in active. */
   var isMyTurn: Boolean = false
-  /** initialize  an action bar when a character is created */
+  /** initialize an action bar when a character is created */
   var action_bar: ActionBar = new ActionBar(this)
+  /** A method to checl the current action bar level */
   def statusCurrentBar: Double = action_bar.status
+  /** A method to check the total size of a character's action bar */
   def actionBarSize: Double = {
     this.action_bar.barSize
   }
+
   /** Return weapon weight if weapon is equipped,
    * return nothing if no weapon */
   def weaponWeight: Double = weapon match {
