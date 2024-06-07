@@ -29,7 +29,7 @@ class WhiteMageTest extends munit.FunSuite{
   }
 
 
-  test("whitemage should equip a sword") {
+  test("whitemage should equip a staff") {
     character.equip(staff)
     val w = character.getWeapon.get
     assertEquals(w, staff)
@@ -42,20 +42,19 @@ class WhiteMageTest extends munit.FunSuite{
   }
 
   test("whitemage should not be able to equip an Axe") {
-    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, None)
+    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, 100, None)
     whitemage.equip(axe)
     assertEquals(whitemage.weapon, None)
-
   }
 
   test("whitemage should not be able to equip a Sword") {
-    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, None)
+    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, 100, None)
     whitemage.equip(sword)
     assertEquals(whitemage.weapon, None)
   }
 
   test("whitemage should be able to uneqip a wand after equipping it") {
-    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, None)
+    val whitemage = new WhiteMage("whitemage", 100, 50, 75.0, 100, None)
     whitemage.equip(wand)
     assertEquals(whitemage.getWeapon.get, wand)
     whitemage.unEquip()

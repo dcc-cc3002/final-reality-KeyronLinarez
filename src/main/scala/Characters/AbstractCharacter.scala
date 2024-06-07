@@ -32,6 +32,8 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
 
     /** catches exception IF valid weapon is not passed as an object to character */
     try {
+      println(this.weapon.get)
+      println(this)
       println(canEquip(this.weapon.get))
       if (!canEquip(this.weapon.get)){
         throw new IllegalArgumentException("Cannot Equip this weapon")
