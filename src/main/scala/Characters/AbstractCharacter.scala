@@ -92,8 +92,11 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** attack calculates attack damage between attacker and attackee
    * This method retrievs a weapon's attack from the attackee's equipped weapon
    * Or returns 0 attack if no weapon is equpped */
-  def attack(target: AbstractCharacter): Int = {
-
+  def attack(target: Character): Int = {
+    // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
+    if (this.getWeapon.isEmpty){
+      0
+    }
     if (target.getClass == this.getClass) { // Check if the target is of the same type
       throw new IllegalArgumentException("Cannot attack your ally")
       0 // damage is zero if attacking the same type

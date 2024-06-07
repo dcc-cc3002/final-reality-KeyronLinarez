@@ -22,6 +22,7 @@ trait Character {
 
   def getWeapon: Option[Weapon]
 
+  def setLife(attack: Int): Unit
   /**
    * The life points of the character. Default is 1.
    */

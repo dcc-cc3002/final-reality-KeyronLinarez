@@ -55,5 +55,25 @@ class NinjaTest extends munit.FunSuite{
     ninja.unEquip()
     assertEquals(ninja.weapon, None)
   }
+
+  // Test case for getDefense method
+  test("getDefense method should return the defense of the character") {
+    assertEquals(ninja.getDefense, 200)
+  }
+
+  // Test case for getWeight method
+  test("getWeight method should return the weight of the character") {
+    assertEquals(ninja.getWeight, 0.0)
+  }
+
+  // Test case for getDefense method
+  test("getName method should return the name of the character") {
+    assertEquals(ninja.getName, "testNinja")
+  }
+
+  // Test case for getWeight method
+  test("getLife method should return the life of the character") {
+    assertEquals(ninja.getLife, 0)
+  }
 }
 

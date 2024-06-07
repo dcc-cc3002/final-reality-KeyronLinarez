@@ -6,7 +6,6 @@ import exceptions.Require
  * Represents an abstract character with common attributes and behavior.
  * Subclasses are expected to implement specific functionality.
  *
- * @var action_bar The action bar of the character respectively
  */
 
 abstract class AbstractEnemy(private val name: String, private var life: Int, private var defense: Int, private var weight: Double,
@@ -17,7 +16,11 @@ abstract class AbstractEnemy(private val name: String, private var life: Int, pr
   Require.Stat(weight.toInt, "weight") atLeast 0
   Require.Stat(attack.toInt, "weight") atLeast 0
 
-
+  /**
+   * The method that controls an enemies attacking behavior
+   *
+   * @param target The target of an attacker, a player character who will be damaged
+   */
   def attackTarget(target: AbstractCharacter): Double = {
     /** if Some(weapon) -> attack damage from weapon, if None -> 0 */
     val attackDamage = attack
