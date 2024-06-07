@@ -30,13 +30,21 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   }
 
   def heal(target: Character): Unit = {
-    // check current spellcaster
-    // heal 30% of total health
+    if (target.isInstanceOf[Enemy]){
+      throw new IllegalArgumentException("You cannot heal an enemy!")
+    }
+    // heal amount = 30% health, convert to integer, add to current target's health
+    // *note, health bar is an immutable val representing initial, or maximum, health
+    val healing: Int = (target.healthBar * .3.toInt)
+    target.setLife(target.getLife + healing)
     useMana(15)
   }
 
   def poison(target: Character): Unit = {
-    // 100% poison
+    target match {
+      case _: Enemy => // 100% chance of poisoning
+      case _ => throw new IllegalArgumentException("You cannot damage an ally!")
+    }
     useMana(30)
 
   }
@@ -44,7 +52,10 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
 
 
   def paralysis(target: Character): Unit = {
-    // 100% paralize
+    target match {
+      case _ => throw new IllegalArgumentException("You cannot damage an ally!")
+      case _ => // 100% chance of paralysis
+    }
     useMana(25)
   }
 

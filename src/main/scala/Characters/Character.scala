@@ -46,6 +46,8 @@ trait Character {
    */
   def getLife: Int = life
 
+  val healthBar: Int = life
+
   /**
    * Gets the defense points of the character.
    * @return the defense points of the character.
