@@ -15,16 +15,16 @@ class aParty() {
   /** List of characters in the party. */
   var party_list: ListBuffer[Character] = ListBuffer.empty[Character]
 
-  /** Size of the party. */
+  /** Size of the party, measured as an int. */
   var party_size: Int = party_list.size
 
-  // Ensures a party can only have 3 members
+  // Ensures a party can not have negative number of members
   Require.Stat(party_size, "party size") atLeast 0
 
   /**
-   * Adds a character to the party.
+   * Adds a character to the party, with a character limit of 3
    *
-   * @param character The character to add to the party.
+   * @param character The character object to add to the party.
    */
   def addCharacter(character: Character): Unit = {
     try {
