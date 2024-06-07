@@ -89,4 +89,17 @@ class BlackMageTest extends munit.FunSuite{
   }
 
 
+  test("a spell should damange an enmy and reduce mans") {
+    val enemy = new Enemy("Enemy", 100, 50, 75.0, 0)
+
+    // Test case for damaging enemy
+    assertEquals(enemy.getLife, 100) // Initial life
+
+    character.lightning(enemy)
+
+    assertEquals(character.getMana, 80) // Mana should decrease by 20
+    assertEquals(enemy.getLife, 100) // Enemy life should decrease
+  }
+
+
 }

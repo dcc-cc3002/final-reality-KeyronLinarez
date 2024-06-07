@@ -28,6 +28,9 @@ abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, wei
    */
   def hechizo(target: Character): Int = {
     try {
+      if (target.getLife == 0){
+        throw new IllegalArgumentException("Cannot attack an enemy that is dead")
+      }
       // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
       if (this.getWeapon.isEmpty) {
         throw new IllegalArgumentException("Cannot attack without a weapon equipped!")
