@@ -29,13 +29,18 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   }
 
   def heal (target: Character): Unit = {
-
+    // heal 30% of total health
+    useMana(15)
   }
+
   def poison (target: Character): Unit = {
+    // 100% poison
+    useMana(30)
 
   }
   def paralysis  (target: Character): Unit = {
-
+    // 100% paralize
+    useMana(25)
   }
 
 }

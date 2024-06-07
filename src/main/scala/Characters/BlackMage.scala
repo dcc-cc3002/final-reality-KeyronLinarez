@@ -29,11 +29,15 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   //- Al lanzar un hechizo con éxito se debe descontar el maná correspondiente
 
   def lightning (target: Character): Unit = {
-
+    hechizo(target)
+    useMana(20)
+    // 30 % paralize
   }
 
   def fire (target: Character): Unit = {
-
+    hechizo(target)
+    useMana(15)
+    // 20% burn
   }
 
 }

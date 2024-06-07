@@ -65,8 +65,8 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** Setter method for setting life, used by attack method
    * @param newLife The new integer of life */
   def setLife(newLife: Int): Unit = {
-    // Check if the new life value is valid (greater than or equal to 1)
-    Require.Stat(newLife, "life") atLeast 1
+    // Check if the new life value is valid (greater than or equal to 0) i.e. NO NEGATIVES
+    Require.Stat(newLife, "life") atLeast 0
     // Update the life attribute with the new value
     life = newLife
   }
