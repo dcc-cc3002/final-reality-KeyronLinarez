@@ -28,7 +28,6 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** equip allows a weapon equip only if the weapon is valid */
   def equip(weapon: Weapon) : Unit = {
     println("Weapon: " + weapon)
-//    println("Me: " + this.canEquip(new Bow()))
     this.weapon_=(Some(weapon))
 
     /** catches exception IF valid weapon is not passed as an object to character */
@@ -42,11 +41,10 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
       case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
     }
 
+    // this if sets the weapon to None if an invalid weapon was detected
     if (this.canEquip(weapon)){
-      println("jackpot")
       this.weapon = Some(weapon)
     } else{
-      println("Nonezo")
       this.weapon = None
     }
   }

@@ -27,8 +27,16 @@ class aParty() {
    * @param character The character to add to the party.
    */
   def addCharacter(character: Character): Unit = {
-    party_list = party_list += character
-    party_size += 1
+    try {
+      party_list = party_list += character
+      party_size += 1
+      if (party_size >= 1){
+        throw new IllegalArgumentException("Party size cannot excee 3")
+      }
+    }
+    catch {
+      case e: IllegalArgumentException => println(s"Caught exception: ${e.getMessage}")
+    }
   }
 
   /**
