@@ -14,10 +14,11 @@ import Armas.{Axe, Bow, MagicWeapon, Staff, Sword, Wand, Weapon}
  *
  */
 class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
-  extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon){
+  extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
 
   /** Indicates whether it's the White Mage's turn in combat. */
-//  var isMyTurn: Boolean = false
+  //  var isMyTurn: Boolean = false
+
   /** Check if valid weapon */
   def canEquip(weapon: Weapon): Boolean = {
     weapon match {
@@ -28,36 +29,31 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
     }
   }
 
-  def heal (target: Character): Unit = {
+  def heal(target: Character): Unit = {
     // check current spellcaster
     // heal 30% of total health
     useMana(15)
   }
-}
 
-  def poison (target: Character): Unit = {
+  def poison(target: Character): Unit = {
     // 100% poison
     useMana(30)
 
   }
-  def paralysis  (target: Character): Unit = {
+
+
+
+  def paralysis(target: Character): Unit = {
     // 100% paralize
     useMana(25)
   }
 
-def lightning(target: Character): Unit = {
-  throw new IllegalArgumentException("White mage can only use white magic")
+  def lightning(target: Character): Unit = {
+    throw new IllegalArgumentException("White mage can only use white magic")
 
-}
+  }
 
-def fire(target: Character): Unit = {
-  throw new IllegalArgumentException("White mage can only use white magic")
-
-}
-
-def heal(target: Character): Unit = {
-  throw new IllegalArgumentException("White mage can only use white magic")
-
-}
-
+  def fire(target: Character): Unit = {
+    throw new IllegalArgumentException("White mage can only use white magic")
+  }
 }

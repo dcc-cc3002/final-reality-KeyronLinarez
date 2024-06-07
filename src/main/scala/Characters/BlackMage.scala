@@ -40,10 +40,10 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
     // 20% burn
   }
 
+
+
   def heal(target: Character): Unit = {
-    // check current spellcaster
-    // heal 30% of total health
-    useMana(15)
+    throw new IllegalArgumentException("Black mage can only use black magic")
   }
 
 

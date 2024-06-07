@@ -30,10 +30,10 @@ abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, wei
     try {
       // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
       if (this.getWeapon.isEmpty) {
-        0
+        throw new IllegalArgumentException("Cannot attack without a weapon equipped!")
       }
       if (target.getClass == this.getClass) { // Check if the target is of the same type
-        throw new IllegalArgumentException("Cannot attack your allyQ")
+        throw new IllegalArgumentException("Cannot attack your ally")
         0 // damage is zero if attacking the same type
       } else {
         // get MAGIC ATTACK value from weapon, or 0 if None
@@ -43,6 +43,11 @@ abstract class AbstractMagicCharacter(name: String, life: Int, defense: Int, wei
         // Ensure damage is non-negative
         if (damage > 0) {
           target.setLife(target.getLife - damage)
+          // if damage is a killing blow, setLife to zero -> NEGATIVE LIFE IS IMPOSSIBLE
+          if(target.getLife < 0){
+            target.setLife(0)
+          }
+          // if not a killing blow, return damage value
           damage
         } else 0
       }

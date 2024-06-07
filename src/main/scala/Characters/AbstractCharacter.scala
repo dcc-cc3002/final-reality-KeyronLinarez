@@ -100,7 +100,7 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   def attack(target: Character): Int = {
     // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
     if (this.getWeapon.isEmpty){
-      0
+      throw new IllegalArgumentException("Cannot attack without a weapon equipped!")
     }
     if (target.getClass == this.getClass) { // Check if the target is of the same type
       throw new IllegalArgumentException("Cannot attack your ally")
