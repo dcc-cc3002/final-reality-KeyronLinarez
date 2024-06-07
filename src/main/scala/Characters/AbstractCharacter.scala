@@ -20,12 +20,14 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   Require.Stat(defense, "defense") atLeast 0
   Require.Stat(weight.toInt, "weight") atLeast 0
 
-  /** canEquip method performed during new object creation, checks if valid weapon */
+  /** canEquip method performed during new object creation, checks if valid weapon
+   * @param  The weapon object to compare! */
   def canEquip(weapon: Weapon): Boolean
 
   override def getWeapon: Option[Weapon] = weapon
 
-  /** equip allows a weapon equip only if the weapon is valid */
+  /** equip allows a weapon equip only if the weapon is valid
+   * @param The weapon object to equip! */
   def equip(weapon: Weapon) : Unit = {
     println("Weapon: " + weapon)
     this.weapon_=(Some(weapon))
@@ -60,7 +62,8 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** getter method for a character's life */
   override def getLife: Int = life
 
-  /** Setter method for setting life, used by attack method */
+  /** Setter method for setting life, used by attack method
+   * @param newLife The new integer of life */
   def setLife(newLife: Int): Unit = {
     // Check if the new life value is valid (greater than or equal to 1)
     Require.Stat(newLife, "life") atLeast 1
@@ -91,7 +94,9 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   }
   /** attack calculates attack damage between attacker and attackee
    * This method retrievs a weapon's attack from the attackee's equipped weapon
-   * Or returns 0 attack if no weapon is equpped */
+   * Or returns 0 attack if no weapon is equpped
+   *
+   * @param target The character to be receiving damage */
   def attack(target: Character): Int = {
     // check if weapon is equipped, DO NOT ATTACK IF NO WEAPON
     if (this.getWeapon.isEmpty){
