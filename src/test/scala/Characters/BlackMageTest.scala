@@ -1,7 +1,6 @@
 package Characters
 
-import Armas.{Axe, Bow, Staff, Sword, Wand, Weapon}
-import Characters.{AbstractCharacter, Warrior}
+import Armas.{Axe, Bow, Staff, Sword, Wand}
 
 class BlackMageTest extends munit.FunSuite{
   val character = new BlackMage("Rona", 100, 200, 0, 100, Some(new Staff))
