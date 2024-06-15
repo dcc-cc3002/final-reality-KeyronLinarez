@@ -36,6 +36,7 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
 
     useMana(20)
     // 30 % paralize
+    target.StatusEffect = "Paralyze"
   }
 
   def fire(target: Character): Unit = {
@@ -45,6 +46,8 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
     }
     useMana(15)
     // 20% burn
+    target.StatusEffect = "Burn"
+
   }
 
 

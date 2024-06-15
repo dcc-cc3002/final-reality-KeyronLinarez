@@ -57,6 +57,8 @@ class WhiteMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
       case _ => // 100% chance of paralysis
     }
     useMana(25)
+    target.StatusEffect = "Paralyze"
+
   }
 
   def lightning(target: Character): Unit = {

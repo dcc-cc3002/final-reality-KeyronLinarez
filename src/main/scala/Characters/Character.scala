@@ -3,6 +3,8 @@ package Characters
 import Armas.Weapon
 import TurnScheduler.ActionBar
 
+import scala.collection.mutable.ListBuffer
+
 /**
  * Trait representing a basic character with common attributes.
  */
@@ -16,6 +18,9 @@ trait Character {
   /** initialize  an action bar when a character is created */
   var action_bar: ActionBar
 
+  // Keeps track of possible status effects
+  var StatusEffect: (String, Int)  // Example: (effect name, duration)
+
   def statusCurrentBar: Double
 
   def actionBarSize: Double
@@ -23,6 +28,7 @@ trait Character {
   def getWeapon: Option[Weapon]
 
   def setLife(attack: Int): Unit
+
   /**
    * The life points of the character. Default is 1.
    */

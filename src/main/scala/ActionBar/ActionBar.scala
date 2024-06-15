@@ -26,10 +26,10 @@ class ActionBar(character: Character) {
    */
   private val weaponWeight: Double = character.weaponWeight
 
-  /**
-   * The total action bar value calculated from the character's weight and weapon weight.
-   */
-  private var barSize: Double = character.getWeight + (0.5 * weaponWeight)
+//  /**
+//   * The total action bar value calculated from the character's weight and weapon weight.
+//   */
+//  private var barSize: Double = character.getWeight + (0.5 * weaponWeight)
 
   /**
    * The current value of the action bar.

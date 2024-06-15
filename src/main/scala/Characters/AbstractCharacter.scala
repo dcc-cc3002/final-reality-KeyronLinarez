@@ -15,6 +15,7 @@ import scala.language.postfixOps
 abstract class AbstractCharacter(private val name: String, private var life: Int, private var defense: Int, private var weight: Double,
                                  var weapon: Option[Weapon]) extends Character {
 
+
   // throw exception if not valid state for LIFE, DEF, WGHT
   Require.Stat(life, "life") atLeast 1
   Require.Stat(defense, "defense") atLeast 0
@@ -23,6 +24,9 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
   /** canEquip method performed during new object creation, checks if valid weapon
    * @param  The weapon object to compare! */
   def canEquip(weapon: Weapon): Boolean
+
+
+
 
   override def getWeapon: Option[Weapon] = weapon
 
@@ -70,21 +74,24 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     // Update the life attribute with the new value
     life = newLife
   }
+
+
+
   /** Getter method for a character's defense stat */
   override def getDefense: Int = defense
   /** Getter method for a character's weight stat */
   override def getWeight: Double = weight
 
-  /** A boolean that indicates whether the character's turn in active. */
-  var isMyTurn: Boolean = false
-  /** initialize an action bar when a character is created */
-  var action_bar: ActionBar = new ActionBar(this)
-  /** A method to checl the current action bar level */
-  def statusCurrentBar: Double = action_bar.status
-  /** A method to check the total size of a character's action bar */
-  def actionBarSize: Double = {
-    this.action_bar.barSize
-  }
+//  /** A boolean that indicates whether the character's turn in active. */
+//  var isMyTurn: Boolean = false
+//  /** initialize an action bar when a character is created */
+//  var action_bar: ActionBar = new ActionBar(this)
+//  /** A method to checl the current action bar level */
+//  def statusCurrentBar: Double = action_bar.status
+//  /** A method to check the total size of a character's action bar */
+//  def actionBarSize: Double = {
+//    this.action_bar.barSize
+//  }
 
   /** Return weapon weight if weapon is equipped,
    * return nothing if no weapon */
@@ -92,6 +99,32 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
     case Some(w) => w.weight // If Some(weapon), return the weight of the weapon
     case None => 0.0 // If None, return 0 or any default value you prefer
   }
+
+  /** This checks the current status of the target, and inflicts damage if
+   * the effect is currently engaged
+   *
+   * @param target The character to be receiving damage */
+  def checkStaus(target: Character): Unit = {
+    val turnsLeft = this.StatusEffect._2
+    // Checking if an effect is active
+    if (this.StatusEffect.equals(("Poison"),1)) {
+      this.attack(target)
+      if (turnsLeft > 0){
+        this.StatusEffect = ("Poison", 2)
+      } else{
+        this.StatusEffect = ("Normal", 0)
+      }
+    } else if (StatusEffect.equals(("Paralzye")){
+      this.isMyTurn = false
+      this.StatusEffect = ("Normal", 0)
+    } else if ((StatusEffect.equals(("Burn")){
+      this.attack(target)
+      if (turnsLeft > 0){
+        this.StatusEffect = ("Burn", 2)
+      }
+    }
+  }
+
   /** attack calculates attack damage between attacker and attackee
    * This method retrievs a weapon's attack from the attackee's equipped weapon
    * Or returns 0 attack if no weapon is equpped

@@ -1,8 +1,9 @@
 package TurnScheduler
 
-import Characters.{AbstractCharacter, Character}
+import Characters.{AbstractCharacter, Character, Enemy}
+
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /**
  * The TurnScheduler class manages the turn order for a party and their enemies.
@@ -10,13 +11,57 @@ import scala.collection.mutable.ListBuffer
  * @constructor Creates a new TurnScheduler for the given party.
  * @param current_party The current party of characters.
  */
-class TurnScheduler(current_party: aParty) {
+class TurnScheduler[T <: Character](var current_party: aParty) {
+
+  /**
+   * Add chars to TurnSched
+   */
+  def addToScheduler()
 
   /** The ongoing party members. */
   var ongoing_party: aParty = current_party
 
-  /** Queue of action bars to track turn order. */
+  /** Queue of Characters to track turn order. */
   val turnOrder: mutable.Queue[Character] = mutable.Queue()
+
+  /**
+   * Initializes the action bar value for each character in a tuple (Character, ActionBar).
+   *
+   */
+  def initializeBars(): Unit = {
+    var charTuples = current_party.party_list.map(character => (character, 0.0))
+  }
+
+  /**
+   * Calculates the maximum action bar value for each character.
+   *
+   * @param charTuples The tuple of (characters, action bars) in the party.
+   * @return A ListBuffer of tuples containing characters and their maximum action bar values.
+   */
+  def totalBarSizes(charTuples: ArrayBuffer[(Character, Double)]): ListBuffer[(Character, Double)] = {
+    val maxBars = ListBuffer[(Character, Double)]()
+    for ((character, value)  <- charTuples) {
+      var maxBarValue = 0.0
+      character match {
+        case _: Enemy =>
+          var value = character.getWeight
+        case _: AbstractCharacter =>
+          if (character.getWeapon.isDefined) {
+            var maxBarValue = character.getWeight + 0.5 * character.getWeapon.get.weight
+          } else {
+            maxBarValue = 0.0
+          }
+        case _ =>
+          maxBarValue = 0.0
+      }
+      maxBars += ((character, maxBarValue))
+    }
+    maxBars
+  }
+
+
+
+  ////////////////
 
   /**
    * Adds a character to the turn order queue.
