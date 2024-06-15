@@ -18,33 +18,33 @@ class ActionBar(character: Character) {
    * The character associated with this action bar.
    * It corresponds to the current index value of a character in a party.
    */
-  val associatedCharacter: Character = character
+  private val associatedCharacter: Character = character
 
   /**
    * The weight of the character's weapon.
    * Extracted from the character, or uses a default value if None.
    */
-  val weaponWeight: Double = character.weaponWeight
+  private val weaponWeight: Double = character.weaponWeight
 
   /**
    * The total action bar value calculated from the character's weight and weapon weight.
    */
-  var barSize: Double = character.getWeight + (0.5 * weaponWeight)
+  private var barSize: Double = character.getWeight + (0.5 * weaponWeight)
 
   /**
    * The current value of the action bar.
    */
-  var status: Double = 0
+  private var status: Double = 0
 
   /**
    * The leftover turn points after a given turn.
    * This is used to keep track of any remaining action points that can be carried over to the next turn.
    */
-  var leftoverTurnPoints: Double = 0
+  private var leftoverTurnPoints: Double = 0
   /**
    * The leftover turn points after a given turn.
    * This is used to keep track of the current amount of points to add to the subsequent action bar.
    */
-  var surplusPoints: Double = 0
+  private var surplusPoints: Double = 0
 
 }
