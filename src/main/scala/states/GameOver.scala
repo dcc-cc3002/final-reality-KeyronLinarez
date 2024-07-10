@@ -9,9 +9,4 @@ class GameOver extends AState {
   override def enteringState(): Unit = ???
 
   override def exitingState(): Unit = ???
-} override def nextState(controller: GameController): Unit = ???
-
-  override def handle(): Unit = ???
-{
-
 }
