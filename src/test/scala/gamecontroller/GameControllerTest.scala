@@ -1,36 +1,37 @@
 package gamecontroller
 
 import munit.FunSuite
-import states.{GameState, InitializeBattle}
+import states.{Attacking, Charging, GameState, InitializeBattle, Resetting}
 
 class GameControllerTest extends FunSuite {
 
-  class MockController extends GameController {
-    var stateChanged = false
+  test("InitializeBattle should transition to Charging state") {
+    val controller = new GameController
 
-    override def setState(state: GameState): Unit = {
-      stateChanged = true
-      super.setState(state)
-    }
+    controller.battleStep()
+
+    assertEquals(controller.currentState, new Charging)
+  }
+  test("Charging State should transition to Attacking state") {
+    val controller = new GameController
+
+    // Act Twice
+    controller.battleStep()
+    controller.battleStep()
+    // Assert
+    assertEquals(controller.currentState, new Attacking)
   }
 
-  test("InitializeBattle should transition to Attacking state") {
-    val controller = new MockController
-    val state = new InitializeBattle(controller)
+  test("Attacking State should transition to Resetting state") {
+    val controller = new GameController
 
-    state.handle()
+    // Act Three times
+    controller.battleStep()
+    controller.battleStep()
+    controller.battleStep()
 
-    assert(controller.stateChanged, "Controller's state should have changed")
+    // Assert
+    assertEquals(controller.currentState, new Resetting)
   }
 
-  test("InitializeBattle should enter and exit state properly") {
-    val controller = new MockController
-    val state = new InitializeBattle(controller)
-
-    state.enteringState()
-    assert(state.enteringState() == println("Entering InitializeBattle State"), "Entering state should print message")
-
-    state.exitingState()
-    assert(state.exitingState() == println("Exiting InitializeBattle State"), "Exiting state should print message")
-  }
 }

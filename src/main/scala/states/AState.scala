@@ -7,11 +7,12 @@ import gamecontroller.GameController
  * to go between different states.
  */
 abstract class AState extends GameState {
-  /**
-   * A protected variable reference for the game controller.
-   */
+
+  // an empty party variable for use in the game controller
   val myParty = new aParty
+  // A protected variable reference for the game controller used by the various states
   protected var controller = new GameController
+  // A turn scheduler utilized by the game controller
   protected var scheduler = new TurnScheduler(myParty)
 
   /**
