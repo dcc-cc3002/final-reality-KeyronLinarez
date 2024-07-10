@@ -2,13 +2,12 @@ package states
 import gamecontroller.GameController
 
 class InitializeBattle extends AState {
-  override def nextState(controller: GameController): Unit = ???
+  override def nextState(controller: GameController): Unit = {
+    controller.setState(new Charging)
+  }
 
   override def handle(): Unit = ???
 
-  override def enteringState(): Unit = ???
-
-  override def exitingState(): Unit = ???
 
 //  + Inicializar una partida.
 

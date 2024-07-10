@@ -2,11 +2,13 @@ package states
 import gamecontroller.GameController
 
 class GameOver extends AState {
-  override def nextState(controller: GameController): Unit = ???
+  override def nextState(controller: GameController): Unit = {
+    controller.setState(new InitializeBattle)
+  }
 
-  override def handle(): Unit = ???
+  override def handle(): Unit = {
+    //  initialize new battle
+  }
 
-  override def enteringState(): Unit = ???
 
-  override def exitingState(): Unit = ???
 }

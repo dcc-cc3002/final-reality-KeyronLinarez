@@ -6,11 +6,9 @@ class Attacking extends AState {
 
   override def handle(): Unit = {
     //    + Hacer que una unidad ataque a otra.
-    //  + Hacer que un mago conjure un hechiz
+
+    //  + Hacer que un mago conjure un hechizo
+
   }
-
-  override def enteringState(): Unit = ???
-
-  override def exitingState(): Unit = ???
 
 }

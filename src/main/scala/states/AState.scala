@@ -1,4 +1,5 @@
 package states
+import TurnScheduler.{TurnScheduler, aParty}
 import gamecontroller.GameController
 /**
  * An abstract class that represents a state in the game.
@@ -9,7 +10,9 @@ abstract class AState extends GameState {
   /**
    * A protected variable reference for the game controller.
    */
+  val myParty = new aParty
   protected var controller = new GameController
+  protected var scheduler = new TurnScheduler(myParty)
 
   /**
    * Sets the game controller for this state.

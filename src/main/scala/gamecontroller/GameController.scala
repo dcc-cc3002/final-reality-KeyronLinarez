@@ -37,10 +37,6 @@ class GameController {
    * @param state The new state to transition to.
    */
   def setState(state: GameState): Unit = {
-    if (currentState != null) {
-      currentState.exitingState()
-    }
     currentState = state
-    currentState.enteringState()
   }
 }
