@@ -104,27 +104,33 @@ abstract class AbstractCharacter(private val name: String, private var life: Int
    * the effect is currently engaged
    *
    * @param target The character to be receiving damage */
-  def checkStaus(target: Character): Unit = {
+  def checkStatus(target: Character): Unit = {
     val turnsLeft = this.StatusEffect._2
-    // Checking if an effect is active
-    if (this.StatusEffect.equals(("Poison"),1)) {
-      this.attack(target)
-      if (turnsLeft > 0){
-        this.StatusEffect = ("Poison", 2)
-      } else{
+
+    this.StatusEffect match {
+      case ("Poison", _) =>
+        this.attack(target)
+        if (turnsLeft > 0) {
+          this.StatusEffect = ("Poison", turnsLeft - 1)
+        } else {
+          this.StatusEffect = ("Normal", 0)
+        }
+
+      case ("Paralyze", _) =>
+        this.isMyTurn = false
         this.StatusEffect = ("Normal", 0)
-      }
-    } else if (StatusEffect.equals(("Paralzye")){
-      this.isMyTurn = false
-      this.StatusEffect = ("Normal", 0)
-    } else if ((StatusEffect.equals(("Burn")){
-      this.attack(target)
-      if (turnsLeft > 0){
-        this.StatusEffect = ("Burn", 2)
-      }
+
+      case ("Burn", _) =>
+        this.attack(target)
+        if (turnsLeft > 0) {
+          this.StatusEffect = ("Burn", turnsLeft - 1)
+        } else {
+          this.StatusEffect = ("Normal", 0)
+        }
+
+      case _ => // Handle other cases or default behavior
     }
   }
-
   /** attack calculates attack damage between attacker and attackee
    * This method retrievs a weapon's attack from the attackee's equipped weapon
    * Or returns 0 attack if no weapon is equpped

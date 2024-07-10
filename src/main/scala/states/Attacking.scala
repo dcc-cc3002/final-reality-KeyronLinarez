@@ -26,7 +26,7 @@ class Attacking extends AState {
     while (scheduler.turnOrder.nonEmpty) {
       val character = scheduler.turnOrder.dequeue()
       // code missing to define target :(
-      character.attack(target)
+      //character.attack(target)
     }
   }
 }

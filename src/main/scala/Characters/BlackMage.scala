@@ -1,6 +1,7 @@
 package Characters
 
 import Armas.{Bow, MagicWeapon, Staff, Sword, Wand, Weapon}
+import TurnScheduler.ActionBar
 /**
  * Represents a  character
  *
@@ -15,6 +16,7 @@ import Armas.{Bow, MagicWeapon, Staff, Sword, Wand, Weapon}
  */
 class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int, weapon: Option[MagicWeapon])
   extends AbstractMagicCharacter(name, life, defense, weight, mana, weapon) {
+
   /** Check if valid weapon */
   def canEquip(weapon: Weapon): Boolean = {
     weapon match {
@@ -36,7 +38,7 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
 
     useMana(20)
     // 30 % paralize
-    target.StatusEffect = "Paralyze"
+    target.StatusEffect = ("Paralyze", 1)
   }
 
   def fire(target: Character): Unit = {
@@ -46,7 +48,7 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
     }
     useMana(15)
     // 20% burn
-    target.StatusEffect = "Burn"
+    target.StatusEffect = ("Burn",2)
 
   }
 
@@ -65,4 +67,15 @@ class BlackMage(name: String, life: Int, defense: Int, weight: Double, mana: Int
   def paralysis(target: Character): Unit = {
     throw new IllegalArgumentException("Black mage can only use black magic")
   }
+
+  /** An initial status effect of normal */
+  var StatusEffect: (String, Int) = ("Normal", 0)
+  /** A boolean that indicates whether the character's turn in active. */
+  override var isMyTurn: Boolean = false
+  /** initialize  an action bar when a character is created */
+  override var action_bar: ActionBar = new ActionBar(this)
+  /** initialize  an action bars points */
+  override def statusCurrentBar: Double = 0
+  /** Calculate a bars current weight */
+  override def actionBarSize: Double = weight + 0.5*weaponWeight
 }

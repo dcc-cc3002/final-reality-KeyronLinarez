@@ -13,7 +13,7 @@ class TurnSchedulerTest extends munit.FunSuite{
   val DiegoPaladin = new Paladin("Diego", 100, 200, 0, Some(new Bow))
 
   //make my party
-
+  var myParty: aParty = new aParty
   myParty.addCharacter(PedroBlackMage)
   myParty.addCharacter(JuanWarrior)
   myParty.addCharacter(DiegoPaladin)

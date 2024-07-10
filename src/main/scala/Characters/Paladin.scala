@@ -1,6 +1,7 @@
 package Characters
 
 import Armas.{Axe, Bow, Sword, Wand, Weapon}
+import TurnScheduler.ActionBar
 /**
  * Represents a Paladin character
  *
@@ -27,4 +28,14 @@ class Paladin(name: String, life: Int, defense: Int, weight: Double, weapon: Opt
       case None => false
     }
   }
+  /** An initial status effect of normal */
+  var StatusEffect: (String, Int) = ("Normal", 0)
+  /** A boolean that indicates whether the character's turn in active. */
+  override var isMyTurn: Boolean = false
+  /** initialize  an action bar when a character is created */
+  override var action_bar: ActionBar = new ActionBar(this)
+  /** initialize  an action bars points */
+  override def statusCurrentBar: Double = 0
+  /** Calculate a bars current weight */
+  override def actionBarSize: Double = weight + 0.5*weaponWeight
 }

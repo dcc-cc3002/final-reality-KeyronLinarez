@@ -1,6 +1,7 @@
 package Characters
 
 import Armas.{Axe, Sword, Weapon}
+import TurnScheduler.ActionBar
 import exceptions.Require
 /**
  * Represents an abstract character with common attributes and behavior.
@@ -31,5 +32,14 @@ abstract class AbstractEnemy(private val name: String, private var life: Int, pr
   }
 
   /** A enemy with a weapon is invalid by default */
-//  override def canEquip: Boolean = false
+  /** An initial status effect of normal */
+  var StatusEffect: (String, Int) = ("Normal", 0)
+  /** A boolean that indicates whether the character's turn in active. */
+  override var isMyTurn: Boolean = false
+  /** initialize  an action bar when a character is created */
+  override var action_bar: ActionBar = new ActionBar(this)
+  /** initialize  an action bars points */
+  override def statusCurrentBar: Double = 0
+  /** Calculate a bars current weight */
+  override def actionBarSize: Double = weight
 }
