@@ -6,7 +6,9 @@ class Charging extends AState {
     controller.setState(new Attacking)
   }
   override def handle(): Unit = {
-    //  + Hacer que un personaje equipe un arma.
+    // increment every action bar by 10
+    scheduler.incrementTurnPoints(10)
+    scheduler.turnCheckAll()
   }
 
 

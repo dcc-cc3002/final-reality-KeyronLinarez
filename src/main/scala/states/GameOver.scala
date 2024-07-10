@@ -7,7 +7,10 @@ class GameOver extends AState {
   }
 
   override def handle(): Unit = {
-    //  initialize new battle
+    // remove all characters from the party to prepare for new battle
+    for (character <- myParty.party_list) {
+      myParty.dropCharacter(character)
+    }
   }
 
 

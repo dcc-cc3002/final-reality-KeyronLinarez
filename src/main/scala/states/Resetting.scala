@@ -8,13 +8,20 @@ class Resetting extends AState {
     if (gameOver){
       controller.setState(new GameOver)
     } else{
+      // reset all action bars and empty the queue
+      scheduler.resetStatus()
+      scheduler.clearTurnQueue()
       controller.setState(new Charging)
     }
   }
 
   override def handle(): Unit = {
-    //Go back to charging
-    incrementTurnPoints
+    for (character <- myParty.party_list) {
+      // if character died during battle, retire character
+      if (character.healthBar < 0) {
+        scheduler.retireCharacter(character)
+      }
+    }
   }
 
 }

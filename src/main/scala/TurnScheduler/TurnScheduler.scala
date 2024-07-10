@@ -13,10 +13,6 @@ import scala.collection.mutable.{ArrayBuffer, ListBuffer}
  */
 class TurnScheduler[T <: Character](var current_party: aParty) {
 
-  /**
-   * Add chars to TurnSched
-   */
-  def addToScheduler()
 
   /** The ongoing party members. */
   var ongoing_party: aParty = current_party
